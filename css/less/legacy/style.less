@@ -1,0 +1,48 @@
+/**
+ * less style
+ *
+ * @author: Rod <supgeek.rod@gmail.com>
+ */
+
+/** -----------  加载遗留样式  ----------- */
+@import "./other/style_20141023.min.css";
+
+/**  ----------  定义变量  ----------  */
+@green: #0AAC87;
+@gray: #F5F5F5;
+@md-1: 979px;
+@sm-1: 767px;
+
+// 导入 通用组件样式
+@import "./other/components.less";
+
+
+
+/**  ----------  Header  ----------  */
+
+
+/**  ----------  Container  ----------  */
+.dxd-container {
+    margin-bottom: 28px;
+}
+
+
+/**  -----------   Footer   ----------  */
+.light-green-background {
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+
+
+// 导入 Module样式
+@import "./module/home.less";
+@import "./module/group.less";
+@import "./module/article.less";
+@import "./module/course.less";
+@import "./module/people.less";
+// 导入 Respone样式
+@import "./other/responsive.less";
+// 导入 重置样式
+@import "./other/reset.less";

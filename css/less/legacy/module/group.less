@@ -1,0 +1,682 @@
+/**
+ * Group module less style
+ *
+ * @author: Rod <supgeek.rod@gmail.com>
+ */
+
+/**  ----------   Group module   ----------  */
+.ew-group {
+    .breadcrumb {
+        background: #E3E3E3;
+    }
+}
+
+// 小组首页 小组列表区域
+.group-index-hot {
+    .group-btn-join {
+        padding: 10px 20px;
+        color: #0AAC87;
+        background: #FFF;
+        &:hover {
+            background-color: #0AAC87 !important;
+            text-decoration: none;
+            color: #FFF;
+        }
+    }
+    .group-btn-hot {
+        border-radius: 0 !important;
+        padding:12px 35px;
+        display: block;
+        background-color: #0AAC87 !important;
+        &:hover {
+            background-color: #00876B !important;
+        }
+    }
+}
+
+// 小组首页 最新、最热帖子区域
+.group-index-posts {
+    .active .group-btn-menu {
+        background-color: #0AAC87 !important;
+    }
+    .group-btn-menu {
+        border-radius: 0 !important;
+        margin: 0;
+        padding: 12px 35px;
+        color: #000;
+        background: #CCC;
+        &:hover {
+            background-color: #0AAC87 !important;
+            text-decoration: none;
+            color: #FFF;
+        }
+    }
+    .light-green {
+        color: #0AAC87;
+    }
+}
+
+// 小组首页 添加小组按钮
+.group-index-addgroup {
+    .create-group-bar{
+        background-color: #f5f5f5;
+        background-color: #ECECEC;
+        margin-top:40px;
+        margin-bottom:40px;
+        padding:15px 30px;
+        font-size:1.2em;
+        white:100%;
+        display:block;
+        color:#444;
+        text-decoration:none;
+    }
+    .create-group-bar:hover{
+        background-color:#0aac87;
+        color:white;
+    }
+}
+
+//小组头部
+.group-header {
+    margin: 20px auto;
+    border-radius: 0;
+    padding: 15px 0;
+    border: none;
+    background: #EEE;
+    min-height: 130px;
+    color: #393939;
+    .pic {
+        position: relative;
+        width: 160px;
+        img {
+            margin-right: 30px;
+            width: 130px;
+            height: 130px;
+        }
+    }
+    .info {
+        margin-top: 10px;
+        .name {
+            font-size: 42px;
+            line-height: 1.5em;
+        }
+        .text {
+            color: #777;
+        }
+        .de {
+            margin-right: 50px;
+            font-size: 18px;
+            line-height: 1.2em;
+        }
+    }
+    .admin {
+        margin-top: 16px;
+        margin-right: 50px;
+        box-sizing: border-box;
+        text-align: right;
+        .btn {
+            margin: 0;
+            padding: 0.6em 2em;
+            border: none;
+            background: #FFF;
+            color: #0AAB82; 
+            font-size: 18px;
+            text-shadow: none;
+        }
+        .btn:hover {
+            background: #0aac87;
+            color: #FFF;
+            font-weight: bold;
+            text-shadow: none;
+        }
+    }
+}
+
+.group-menu {
+    .btn {
+        margin: 0;
+        padding: 0.6em 2em;
+        border: none;
+        background: #e5e5e5;
+        font-size: 18px;
+        font-weight: normal;
+        text-shadow: none;
+    }
+    .btn:hover {
+        background-color: @green;
+        color: #FFF;
+        font-weight: bold;
+        text-shadow: none;
+    }
+}
+
+
+/** 小组讨论区  */
+.group-discuss {
+    .item {
+        cursor: pointer;
+        padding-left: 2em;
+        font-size: 16px;
+        line-height: 3em;
+        background: #F5F5F5;
+        .title {
+            float: left;
+            max-height: 3em;
+            span {
+                float: right;
+                margin-top: 1em;
+            }
+        }
+        .link {
+            display: inline-block;
+            max-width: 30em;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            margin-right: 1em;
+            color: #555;
+        }
+        .info {
+            float: right;
+            padding-right: 20px;
+            color: #555;
+            span {
+                display: inline-block;
+                text-align: right;
+                font-size: 14px;
+            }
+            .reply {
+                padding-left: 2em;
+            }
+            .date {
+                padding-left: 2em;
+                text-align: left;
+            }
+            .name {
+                display: inline-block;
+                a {
+                    color: #0AAB8A !important;
+                    font-size: 14px;
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+        &:hover {
+            background: #0AAB8A !important;
+            .name,
+            .name a {
+                color: #FFF !important;
+            }
+            .label {
+                background: #FFF;
+                color: #555;
+                text-shadow: none;
+            }
+            .link, .reply, .date {
+                color: #FFF;
+            }
+        }
+        .label {
+            margin-left: 12px;
+            border-radius: 0;
+            line-height: 2em;
+            width: 4em;
+            text-align: center;
+            background: #0BAB87;
+        }
+    }
+    .even {
+        background: #E5E5E5;
+    }
+    @media screen{
+    }
+    @media (max-width: @sm-1){
+        .item {
+            .title {
+                float: none;
+                overflow: hidden;
+                white-space: nowrap;
+                padding-top: 0.5em;
+                text-align: center;
+                line-height: 2em;
+            }
+            .info {
+                line-height: 2em;
+                margin: 0 auto;
+                float: none;
+                text-align: center;
+                span, .name{
+                    display: inline;
+                    padding: 0 0.5em;
+                }
+            }
+        }
+    }
+}
+
+
+/**  小组课程收藏区  */
+.group-courses {
+    background: #E5E5E5;
+    float: none;
+    padding: 10px 0;
+    margin: 10px auto;
+    .center {
+        float: none;
+        margin: 0 auto;
+    }
+    .thumbnails {
+        margin-bottom: 0;
+    }
+    .group-courses ul {
+        padding: 20px 0; 
+    }
+    .group-course-card {
+        margin: 12px auto 22px;
+        max-width: 270px;
+        .div {
+            background: #FFF;
+        }
+        .info {
+            border: 2px solid #FFF;
+        }
+    }
+}
+
+
+/**  小组成员  */
+.group-member {
+    background: #E5E5E5;
+    padding: 20px 4%;
+    img.avatar {
+        width: 80px;
+        height: 80px;
+    }
+    .admin {
+        padding: 15px 0 10px;
+        border-bottom: 2px solid #D8D8D8; 
+        > .info {
+            padding-top: 75px;
+            font-size: 18px;
+            color: #393939;
+            small {
+                color: #686868;
+                line-height: 2.5em;
+            }
+        }
+        .student-card {
+            .de {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                line-height: 1.5em;
+                height: 1.5em;
+            }
+        }
+    }
+    .students {
+        .t {
+            margin: 20px 0 4px 12px;
+            font-size: 20px;
+            color: #383838;
+        }
+        .student-card {
+        }
+    }
+    .student-card {
+        position: relative;
+        float: left;
+        margin: 12px 5% 12px 0;
+        padding: 12px 0;
+        box-sizing: border-box;
+        border: 2px solid #FFF;
+        background: #FFF;
+        width: 30%;
+        color: #555;
+        &:hover {
+            border: 2px solid #0BAB87;
+            background-image: url('../images/hook.gif');
+            background-repeat: no-repeat;
+            background-position:top right;
+            small {
+                display: none;
+            }
+            .de {
+                display: none;
+            }
+            .action {
+                display: block;
+            }
+        }
+        img {
+            padding-left: 10px;
+        }
+        .info {
+            height: 80px;
+            overflow: hidden;
+            .de {
+                position: absolute;
+                bottom: 12px;
+                padding: 0  4px 0 16px;
+                margin: 0;
+                        font-size: 16px;
+                color: #555;
+            }
+            .name {
+                font-size: 24px;
+                padding: 12px 0 0 16px;
+                line-height: 1em;
+                margin-bottom: 0;
+                a {
+                    color: #555;
+                    background: none;
+                }
+                small {
+                    font-size: 14px;
+                    color: #BBB;
+                }
+            }
+        }
+        .action {
+            position: absolute;
+            bottom: 0; 
+            left: 106px;
+            display: none;
+            a {
+                display: inline-block;
+                padding: 0 1em;
+                margin: 0 12px 12px 0;
+                background: #0BAB87;
+                text-align: center;
+                line-height: 1.8em;
+                color: #FFF;
+                text-decoration: none;
+            }
+        }
+    }
+    .three {
+        margin-right: 0;
+    }
+    @media (max-width: 979px){
+        .admin > .info {
+            display: none;
+        }
+        .student-card {
+            margin: none;
+            width: 100%;
+        }
+    }
+}
+
+
+/**  ----------  社区Group  ----------  */
+#edu-group {
+    margin-top: 20px;
+   .separator{
+        border-top: 1px solid #eee;
+        border-bottom: none;
+    }
+    .group-post-tabs  {
+        margin-top: 2px;
+        li {
+            a {
+                margin: 0;
+                padding: 12px 35px;
+                width: 4em;
+                height: 1em;
+                border-radius: 0;
+                &:hover {
+                    background-color: @green;
+                }
+            }
+            &.active a {
+                background-color: @green;
+                &:hover {
+                    background-color: @green - 30;
+                }
+            }
+        }
+    }
+    // postlist tab
+    .index-postlist {
+        .items .item {
+            a:hover {
+                text-decoration: underline;
+            }
+            img {
+                width: 90px;
+                height: 90px;
+            }
+            .data {
+                margin-left: 105px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                .title {
+                    font-size: 18px;
+                    color: @green;
+                    white-space: nowrap;
+                }
+                .content {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    margin: 10px 0;
+                    padding-left: 6px;
+                    font-size: 16px;
+                    line-height: 3em;
+                    background: #f2f2f2;
+                    color: #9e9e9e;
+                }
+                .info {
+                    color: #7c7c7c;
+                    a {
+                        color: #7c7c7c;
+                    }
+                }
+            }
+        }
+    }
+    // 所有小组tab 
+    #post-tab-group-all {
+        .group-card {
+            margin-bottom: 25px;
+            background-color: #ddd;
+            height: 90px;
+            overflow: hidden;
+            .pic {
+                width: 90px;
+                height: 90px;
+                overflow: hidden;
+            }
+            .name {
+                margin-top: 12px;
+                line-height: 30px;
+                font-size: 20px;
+            }
+            .data {
+                margin-right: 0;
+                margin-top: 10px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                .name {
+                    color: @green;
+                }
+                color: #999;
+            }
+            &:hover {
+                cursor: pointer;
+                background-color: @green;
+                img {
+                    transform: scale(1.2);
+                    -webkit-transform: scale(1.2);
+                    -o-transform: scale(1.2);
+                    -ms-transform: scale(1.2);
+                    -moz-transform: scale(1.2);
+                    transition: all 1s ease 0s;
+                    -webkit-transition: all 1s ease 0s;
+                    -o-transition: all 1s ease 0s;
+                    -moz-transition: all 1s ease 0s;
+                    -ms-transition: all 1s ease 0s;
+                }
+                .data,
+                .name {
+                    color: #fff;
+                }
+            }
+        }
+    }
+    // 侧边栏，热门小组
+    .side-mygroup {
+        h3 {
+            padding-top: 22px;
+            margin: 0 0 25px 0;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 22px;
+            font-weight: normal;
+        }
+        .item {
+            margin-bottom: 12px;
+            img {
+                width: 70px;
+                height: 70px;
+            }
+            .info {
+                text-align: center;
+            }
+        }
+    }
+    .create-group-bar {
+        margin-top: 8px;
+        padding: 0;
+        text-decoration: none;
+        font-size: 16px;
+        display: block;
+        color: #333;
+        background-color: #eee;
+        line-height: 48px;
+        &:hover {
+            background-color: @green;
+            color: #fff;
+        }
+    }
+    .side-hotgroup {
+        a:hover {
+            text-decoration: underline;
+        }
+        h3 {
+            padding-top: 22px;
+            margin: 0 0 25px 0;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 22px;
+            font-weight: normal;
+        }
+        .pic {
+            img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        .info {
+            position: relative;
+            margin-left: 94px;
+            height: 80px;
+            a {
+                display: block;
+            }
+            a.name {
+                font-size: 18px;
+                color: #595959;
+            }
+            span {
+                line-height: 26px;
+                color: #AAA;
+            }
+            a.btn {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+                text-shadow: none;
+                padding: 0 8px;
+                color: @green;
+                border: 1px solid #ddd;
+                background-color: #fff;
+                background-image: none;
+                width: 5em;
+                line-height: 2em;
+                &:hover {
+                    text-decoration: none;
+                    border: 1px solid @green;
+                    color: #fff;
+                    background-color: @green;
+                }
+            }
+        }
+       .separator{
+            border-top: 1px solid #eee;
+            border-bottom: none;
+        }
+    }
+}
+
+.group-menu {
+    .nav {
+        margin-bottom: 0;
+    }
+    li.active a {
+        background-color: @green;
+        &:hover {
+            background-color: @green - 20 !important;
+        }
+    }
+    a {
+        margin: 0 !important;
+        padding: 8px 12px !important;
+        border-radius: 0 !important;
+        height: 32px;
+        line-height: 32px !important;
+        font-size: 16px !important;
+        &:hover {
+            background-color: @green !important;
+        }
+    }
+}
+
+
+
+/**  ----------  reser  ----------  */
+.green {
+    color: @green;
+}
+
+.group-header {
+    .admin {
+        a.btn {
+            border-radius: 0;
+        }
+    }
+}
+
+// 小组帖子内容
+.dxd-post-comment-item,
+.dxd-post-content  {
+    word-wrap: break-word;
+    td {
+        max-width: 810px;
+    }
+}
+
+// 面包屑
+.breadcrumb {
+    background-color: #eee;
+}
+
+#edu-group .index-postlist .list-view {
+    padding-top: 0;
+}

@@ -1,0 +1,91 @@
+/**
+ * 公用组件 less style
+ * 
+ * @author: Rod <supgeek.rod@gmail.com>
+ */
+
+/**  主导航静止飘浮  */
+.fixed-main-nav {
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+    width: 100%;
+    border-bottom: 1px solid @green;
+}
+
+
+/**  创建新内容按钮  */
+.create-bar {
+    margin: 30px auto;
+    .create-bar-btn {
+        display: block;
+        padding: 15px 30px;
+        text-decoration: none;
+        background-color: @gray;
+        font-size: 1.2em;
+        color: #333;
+    }
+    .create-bar-btn:hover {
+        text-decoration: none;
+        background-color: @green;
+        color: #FFF;
+    }
+}
+
+
+/**  分页  */
+.pagination {
+    margin: 30px auto;
+    text-align: left;
+    ul {
+        box-shadow: none;
+        li {
+            border: none;
+            background: none;
+            &:hover {
+                background: none;
+            }
+        }
+        li a {
+                margin: 0 4px;
+                border: none !important;
+                border-radius: 0 !important;
+                background: #98A2A3 !important;
+                color: #FFF;
+        }
+        li.active a, li a:hover {
+            color: #FFF;
+            background: #0BAB87 !important;
+        }
+        li.disabled a {
+            color: #999;
+            background: #D6D6D6 !important;
+        }
+    }
+}
+
+
+/**  小菜单  */
+.menu {
+    margin: 40px 0 30px 0;
+    a {
+        display: inline-block;
+        width: 168px;
+        height: 46px;
+        text-decoration: none;
+        background: #E5E5E5;
+        font-size: 16px;
+        color: #393939;
+        text-align: center;
+        line-height: 46px;
+    }
+    a:hover {
+        color: #FFF;
+        background: #0BAB87;
+    }
+    a.active {
+        color: #FFF;
+        background: #0BAB87;
+    }
+}
+

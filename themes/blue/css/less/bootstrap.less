@@ -1,0 +1,39 @@
+/**
+ * less style
+ *
+ * Less架构的主文件，在这个文件里加载所需要的模块less文件和组件less文件
+ */
+
+//
+//
+// less变量
+@import "./variable.less";
+
+
+
+//
+// Module less file
+// ---------------------------------------------------------------
+@import "./module/base.less";                   // 基本样式
+@import "./module/header.less";                 // 头部模块
+@import "./module/footer.less";                 // 底部模块
+@import "./module/home.less";                   // 首页面
+@import "./module/course.less";                 // 课程模块
+@import "./module/group.less";                  // 小组模块
+
+
+
+//
+// Component less file
+// ------------------------------
+@import "./components/head-nav.less";           // 头部导航框
+@import "./components/head-search.less";        // 头部搜索框
+@import "./components/nav-pills.less";          // 类目菜单
+@import "./components/nav-list.less";           // 类目列表
+@import "./components/group-card.less";         // 小组卡片
+
+
+//
+// Reset less file
+// ------------------------------
+@import "./module/reset.less";                  // 重置样式

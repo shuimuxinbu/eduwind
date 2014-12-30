@@ -1,0 +1,3 @@
+Add image cropping functionality to your Yii application using the Jcrop jQuery cropping tool.
+
+This extension adds a simple way to add start, cancel, and apply buttons. Also provides a PHP class to handle the crop request via AJAX.

@@ -1,0 +1,134 @@
+/**
+ * module less style
+ * @author: eduwind
+ *
+ * Base 定义一些基础样式
+ */
+
+
+//
+// body 元素
+// ------------------------------
+body {
+    color: @color-text;
+    background-color: @body-bg;
+}
+
+
+
+//
+// 导航
+// ------------------------------
+#edu-header .navbar-inner {
+    background-color: @color-main !important;
+}
+#edu-header .navbar-inner .nav li.active a {
+    background-color: darken(@color-main, 10%);
+}
+#edu-header .navbar-inner .nav li.active a:hover {
+    background-color: darken(@color-main, 10%);
+}
+#edu-header .navbar-inner .nav li a:hover {
+    background-color: darken(@color-main, 8%);
+}
+
+
+
+//
+// 主色调
+// ------------------------------
+.main-color, a.main-color {
+    color: @color-main !important;
+}
+
+.main-background {
+    background-color: @color-main !important;
+    border-color: @color-main !important;
+}
+
+.main-separate-line {
+    margin: 10px 0;
+    border-style: solid;
+    border-width: 0;
+    border-top-width: 1px;
+}
+
+
+
+//
+// 按钮
+// ------------------------------
+.btn {
+
+}
+
+.btn-primary {
+    background-image: none !important;
+    background-color: @color-main !important;
+    border: 1px solid @color-main !important;
+    box-shadow: none;
+    color: #fff !important;
+    &:hover {
+        background-image: none !important;
+        background-color: darken(@color-main, 4%) !important;
+        border: 1px solid darken(@color-main, 4%) !important;
+        color: #fff !important;
+    }
+}
+
+
+
+
+
+
+
+/*
+
+// test
+@color-test: #ff9900;
+
+#edu-header .navbar-inner {
+    background-color: @color-test !important;
+}
+#edu-header .navbar-inner .nav li.active a {
+    background-color: darken(@color-test, 10%);
+}
+#edu-header .navbar-inner .nav li.active a:hover {
+    background-color: darken(@color-test, 10%);
+}
+#edu-header .navbar-inner .nav li a:hover {
+    background-color: darken(@color-test, 8%);
+}
+
+
+.main-color, a.main-color {
+    color: @color-test !important;
+}
+
+.main-background {
+    background-color: @color-test !important;
+    border-color: @color-test !important;
+}
+
+.main-separate-line {
+    border-style: solid;
+    border-width: 1px;
+}
+
+
+.btn-primary {
+    background-image: none !important;
+    background-color: @color-test !important;
+    border: 1px solid @color-test !important;
+    box-shadow: none;
+    color: #fff !important;
+    &:hover {
+        background-image: none !important;
+        background-color: darken(@color-test, 4%) !important;
+        border: 1px solid darken(@color-test, 4%) !important;
+        color: #fff !important;
+    }
+}
+
+
+*/

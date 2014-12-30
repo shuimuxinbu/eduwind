@@ -1,0 +1,75 @@
+/**
+ * component less style
+ * @author: eduwind
+ */
+
+
+//
+// 小组卡片
+// ---------------------------------------------------
+.ew-group-card {
+    margin-bottom: 25px;
+    background-color: #ddd;
+    height: 90px;
+    overflow: hidden;
+
+    .pic {
+        width: 90px;
+        height: 90px;
+        overflow: hidden;
+        img {
+            transition: all 1s ease 0s;
+            -webkit-transition: all 1s ease 0s;
+            -o-transition: all 1s ease 0s;
+            -moz-transition: all 1s ease 0s;
+            -ms-transition: all 1s ease 0s;
+        }
+    }
+
+    .data {
+        color: #999;
+        margin-top: 10px;
+        overflow: hidden;
+        .name {
+            margin-top: 12px;
+            color: @color-main !important;
+            text-decoration: none;
+            line-height: 30px;
+            font-size: 20px;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &:hover {
+        background-color: lighten(@color-main, 4%) !important;
+        cursor: pointer;
+
+        .pic {
+            img {
+                transform: scale(1.2);
+                -webkit-transform: scale(1.2);
+                -o-transform: scale(1.2);
+                -ms-transform: scale(1.2);
+                -moz-transform: scale(1.2);
+                transition: all 1s ease 0s;
+                -webkit-transition: all 1s ease 0s;
+                -o-transition: all 1s ease 0s;
+                -moz-transition: all 1s ease 0s;
+                -ms-transition: all 1s ease 0s;
+            }
+        }
+
+        .data {
+            color: #fff;
+            .name {
+                text-decoration: none;
+                color: #fff !important;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

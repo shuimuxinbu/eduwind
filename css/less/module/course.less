@@ -1,0 +1,456 @@
+/**
+ * module less style
+ * @author: Rod
+ */
+
+//
+// 课程模块
+// ------------------------------
+#edu-course {
+    @section-margin-top: 20px;
+    @color-yellow: #f9b552;
+    overflow: hidden;
+
+    #common {
+        .caption {
+            display: block;
+            margin-bottom: 6px;
+            color: @color-main;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 26px;
+            border-bottom: 2px solid @color-main;
+        }
+    }
+
+
+
+    /** 课程首页 */
+    &.page-index {
+        // 添加课程按钮
+        .add-course {
+            z-index: 999;
+            right: 15px !important;
+        }
+
+
+        // 课程列表
+        .section-course-list {
+            .items {
+                .course-card {
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+
+
+
+    /** 课程主页 */
+    &.course-home {
+        // 头部区域
+        .panel-course-header {
+            &.nopay {
+                .pic {
+                    width: 405px;
+                    min-width: 405px;
+                    img {
+                        height: 300px;
+                    }
+                }
+                .text {
+                    .elective-course-btn {
+                        padding: 20px 50px;
+                        font-size: 20px;
+                    }
+                    .name {
+                        padding-top: 20px;
+                        height: 110px;
+                        line-height: 110px;
+                        font-size: 48px;
+                    }
+                    .info {
+                        padding-top: 30px;
+                        span {
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+            display: table;
+            height: 220px;
+            margin-bottom: 10px;
+            width: 100%;
+            .pic {
+                display: table-cell;
+                max-width: 297px;
+                width: 297px;
+                img {
+                    height: 220px;
+                }
+            }
+            .text {
+                position: relative;
+                display: table-cell;
+                vertical-align: top;
+                background-color: @color-main;
+                .manage-btn-group {
+                    position: absolute;
+                    right: 10px;
+                    top: 4px;
+                    a {
+                        color: #fff;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+                .fee {
+                    display: block;
+                    position: absolute;
+                    bottom: 95px;
+                    right: 40px;
+                    font-size: 22px;
+                    background-color: darken(@color-main, 8%);
+                    line-height: 1.5em;
+                    padding: 0 15px;
+                    border-radius: 20px;
+                    color: #fff;
+                }
+                .elective-course-btn {
+                    position: absolute;
+                    bottom: 20px;
+                    right: 40px;
+                    padding: 16px 40px;
+                    color: #fff;
+                    font-size: 18px;
+                    font-weight: bold;
+                    background-color: @color-yellow;
+                    &:hover {
+                        background-color: darken(@color-yellow, 8%);
+                    }
+                }
+                .name {
+                    padding-left: 30px;
+                    padding-top: 20px;
+                    line-height: 80px;
+                    white-space: nowrap;
+                    font-size: 30px;
+                    color: #eee;
+                    background-color: darken(@color-main, 8%);
+                    .study-line {
+                        position: absolute;
+                        top: 36px;
+                        right: 2em;
+                        display: inline-block;
+                        font-size: 16px;
+                        line-height: 1.5em;
+                        width: 46%;
+                        span {
+                        }
+                        .progress {
+                            border-radius: 0;
+                            .bar {
+                                background-color: @color-yellow;
+                                background-image: none;
+                            }
+                        }
+                    }
+                }
+                .info {
+                    padding-left: 30px;
+                    padding-top: 10px;
+                    span {
+                        display: block;
+                        color: #eee;
+                        font-size: 16px;
+                        line-height: 2em;
+                    }
+                }
+                .info-course {
+                    height: 120px;
+                    padding-left: 30px;
+                    div {
+                        box-sizing: border-box;
+                        display: inline-block;
+                        border-left: 1px solid #fff;
+                        padding: 50px 0;
+                        color: #fff;
+                        font-size: 18px;
+                        width: 27%;
+                        text-align: center;
+                        &:first-child {
+                            position: relative;
+                            border-left: none;
+                            width: 44%;
+                            a {
+                                color: #fff;
+                                .icon-plus-sign {
+                                    color: @color-yellow;
+                                }
+                            }
+                            .btn-course-manage {
+                                display: inline-block;
+                                background-color: @color-yellow;
+                                margin-left: 12px;
+                                padding: 0 8px;
+                                font-size: 14px;
+                                line-height: 25px;
+                            }
+                            .dropdown-menu {
+                                top: 70px;
+                                left: 20px;
+                                a {
+                                    color: #333;
+                                    &:hover {
+                                        color: #fff;
+                                        background-color: @color-main;
+                                        background-image: none;
+                                    }
+                                }
+                            }
+                            .student-number {
+                                margin-left: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 课程内容区域
+        .mainbody-course {
+            // 课程介绍
+            .section-course-introduction {
+                margin-top: @section-margin-top;
+                .caption {
+                    #edu-course #common > .caption;
+                }
+            }
+
+            // 课时、评价、讨论 数据
+            .section-course-data {
+                margin-top: @section-margin-top;
+                .caption {
+                    #edu-course #common > .caption;
+                    font-size: 0;
+                    line-height: 0;
+                    .pull-right {
+                        .score {
+                            font-size: 20px;
+                            line-height: 30px;
+                            margin-right: 1em;
+                        }
+                        .bdsharebuttonbox {
+                            display: inline-block;
+                            span {
+                                font-size: 20px !important;
+                                padding-top: 5px;
+                                float: left;
+                                line-height: 20px;
+                                height: 20px;
+                                display: inline-block;
+                            }
+                            a {
+                                margin: 5px 6px 0 0;
+                            }
+                        }
+                    }
+                    a {
+                        display: inline-block;
+                        padding: 2px 8px;
+                        color: @color-main;
+                        font-size: 20px;
+                        line-height: 26px;
+                        &.active {
+                            color: #fff;
+                            background-color: @color-main;
+                            &:hover {
+                                color: #fff;
+                                background-color: @color-main;
+                            }
+                        }
+                        &:hover {
+                            color: #fff;
+                            background-color: lighten(@color-main, 2%);
+                        }
+
+                    }
+                }
+                .panel-login {
+                    padding: 8px 4px;
+                    border: 2px dashed #bbb
+                }
+                .items {
+                    .item-lesson {
+                        font-size: 16px;
+                        margin: 0.8em 0;
+                        i {
+                            color: #999;
+                        }
+                        .order {
+                            display: inline-block;
+                            width: 6em;
+                        }
+                        a {
+                            color: #333;
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                        .duration {
+                            font-size: 14px;
+                            color: #999;
+                        }
+                    }
+                }
+            }
+
+            // 课程讨论
+            .section-course-post,
+            .section-course-rate {
+                .form-post,
+                .form-rate {
+                    .content {
+                        display: block;
+                        border-radius: 0;
+                        height: 80px;
+                        background-color: #eee;
+                    }
+                    .btn-submit {
+                        border: none;
+                        padding: 4px 8px;
+                        color: #fff;
+                        background-color: @color-main;
+                    }
+                }
+                .items {
+                    padding-top: 18px;
+                    .separator {
+                        margin: 10px 0;
+                        border-bottom: 1px solid #ddd;
+                    }
+                    .item-post,
+                    .item-rate {
+                        color: #999;
+                        .user {
+                            color: @color-link;
+                        }
+                        .content {
+                            color: #333;
+                        }
+                        .date {
+                            padding-left: 2em;
+                        }
+                        a {
+                            color: #666;
+                        }
+                        .star {
+                            width: 80px;
+                            height: 16px;
+                        }
+                    }
+                }
+            }
+
+            // 课时评价
+            .section-course-review {
+                margin-top: @section-margin-top;
+                .caption {
+                    #edu-course #common > .caption;
+                }
+            }
+
+            // 授课教师
+            .section-course-teacher {
+                margin-top: @section-margin-top;
+                .caption {
+                    #edu-course #common > .caption;
+                    border-bottom: 1px solid #fff;
+                }
+                .item-teacher {
+                    .profile {
+                        text-align: center;
+                        .pic {
+                            img {
+                                width: 78px;
+                                height: 78px;
+                                border-radius: 36px;
+                            }
+                        }
+                        .name {
+                            margin-left: 10px;
+                            font-size: 22px;
+                            color: @color-main;
+                        }
+                    }
+                    .introduction {
+                        margin-top: 6px;
+                    }
+                }
+            }
+
+            // 共同学习的同学
+            .section-course-student {
+                margin-top: @section-margin-top;
+                .caption {
+                    #edu-course #common > .caption;
+                    border-bottom: 1px solid #fff;
+                }
+                .items {
+                    .item-student {
+                        .pic {
+                        }
+                        .name {
+                            display: block;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            padding: 4px 0 10px;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+            
+            // 回复光荣榜
+            .section-course-replayBoard {
+                margin-top: @section-margin-top;
+                .caption {
+                    #edu-course #common > .caption;
+                    border-bottom: 1px solid #fff;
+                }
+                .items {
+                    .item-replayWiner {
+                        position: relative;
+                        .separator {
+                            margin: 10px 0;
+                            border: 1px solid #ddd;
+                        }
+                        .pic {
+                            img {
+                                width: 80px;
+                            }
+                        }
+                        .user {
+                            position: absolute;
+                            top: 0;
+                            left: 94px;
+                            color: #333;
+                            font-size: 18px;
+                            line-height: 1.5em;
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                        .replayNum {
+                            position: absolute;
+                            bottom: 0;
+                            right: 0;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

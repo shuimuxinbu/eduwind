@@ -1,0 +1,81 @@
+/**
+ * component less style
+ * @author: eduwind
+ */
+
+
+//
+// 头部导航组件
+// ---------------------------------------------------
+.ew-head-nav {
+    @inner-color-main: @color-main;
+    @inner-color-text: #fff;
+
+    // 导航栏
+    .navbar {
+        margin: 0;
+        .navbar-inner {
+            background-color: @inner-color-main;
+            color: @inner-color-text;
+
+            // 导航链接
+            ul {
+                li {
+                    a {
+                        padding: 12px 30px;
+                        font-size: 18px;
+                        line-height: 20px;
+                        color: @inner-color-text;
+                        &:hover {
+                            color: @inner-color-text;
+                            background-color: darken(@inner-color-main, 8%);
+                        }
+                    }
+                    &.active {
+                        a {
+                            color: @inner-color-text;
+                            background-color: darken(@inner-color-main, 10%);
+                        }
+                    }
+                }
+            }
+
+            // 右侧注册登录等快捷导航
+            ul.nav-nimble {
+                li {
+                    a {
+                        padding: 12px 15px;
+                        font-size: 12px;
+                    }
+                    // 下拉导航项
+                    &.open {
+                        a {
+                            color: @inner-color-text;
+                        }
+                        // 下拉菜单
+                        ul {
+                            li {
+                                a {
+                                    padding: 3px 20px;
+                                    color: @inner-color-main;
+                                    &:hover {
+                                        color: #fff;
+                                        background-color: darken(@inner-color-main, 8%);
+                                        background-image: none;
+                                    }
+                                }
+                                &.active {
+                                    a {
+                                        color: #fff;
+                                        background-color: darken(@inner-color-main, 10%);
+                                        background-image: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

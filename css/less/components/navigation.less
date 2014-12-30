@@ -1,0 +1,71 @@
+/**
+ * component less style
+ * @author: EduWind
+ */
+
+
+//
+// 导航栏
+// ---------------------------------------------------
+.ew-navigation {
+    @icolor-headbar-bg: #ececec;
+
+
+    height: 44px;
+    line-height: 44px;
+    font-size: 18px;
+    nav {
+        background-color: @icolor-headbar-bg;
+        border: 0;
+
+        // 导航列表
+        ul.navbar-nav {
+            li {
+                a {
+                    padding: 12px 30px;
+                    height: 44px;
+                    font-size: 18px;
+                    line-height: 20px;
+                }
+                &:hover {
+                    &>a {
+                        background-color: #f6f6f6;
+                        color: @color-main;
+                    }
+                }
+                &.active {
+                    a {
+                        background-color: #fff;
+                        color: @color-main;
+                    }
+                    &:hover {
+                        a {
+                            color: @color-main;
+                            background-color: #fff;
+                        }
+                    }
+                }
+            }
+
+            // 快捷导航
+            &.launchpad {
+                li {
+                    a {
+                        padding: 12px 15px;
+                        font-size: 12px;
+                    }
+                    ul.dropdown-menu {
+                        li {
+                            a {
+                                color: @color-text;
+                                &:hover {
+                                    color: @color-main;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,59 @@
+/**
+ * Media query less style
+ *
+ * @author: Rod <supgeek.rod@gmail.com>
+ */
+
+/**  ----------  大屏幕  ----------  */
+@media (min-width: 1200px) {
+    .group-courses .group-course-card {
+        margin-left: 53px !important;
+        img {
+            width: 270px;
+            height: 200px;
+        }
+    }
+}
+
+
+@media (min-width: 980px) and (max-width: 1199px) {
+    .group-courses .group-course-card {
+        margin-left: 46px !important;
+        img {
+            width: 220px;
+            height: 162px;
+        }
+    }
+}
+
+
+
+/**  ----------  平板电脑和小屏电脑之间的分辨率  ----------  */
+@media (min-width: 768px) and (max-width: 979px) {
+    .group-courses .group-course-card {
+        margin-left: 40px !important;
+        img {
+            width: 166px;
+            height: 122px;
+        }
+    }
+}
+
+
+
+/**  ----------  横向放置的手机和竖向放置的平板之间的分辨率  ----------  */
+@media (max-width: 767px) {
+    .group-courses .group-course-card {
+        margin-left: 34px !important;
+        img {
+            width: 270px;
+            height: 200px;
+        }
+    }
+}
+
+
+
+/**  ----------  横向放置的手机及分辨率更小的设备  ----------  */
+@media (max-width: 480px) {
+}

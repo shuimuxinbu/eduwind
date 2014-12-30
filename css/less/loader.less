@@ -1,0 +1,36 @@
+/**
+ * less style
+ *
+ * 加载器，用于加载所有需要less文件，以便复用在theme中
+ */
+
+//
+// 加载历史遗留的样式文件
+// ------------------------------
+// @import "./legacy/style.less";               // style.min.css 为此文件的编译文件
+// @import "legacy/style.min.css";
+
+
+//
+// Module less file
+// ------------------------------
+@import "./module/header.less";                 // 头部模块
+@import "./module/footer.less";                 // 底部模块
+@import "./module/home.less";                   // 首页面
+@import "./module/article.less";                // 文章模块
+@import "./module/group.less";                  // 小组模块
+@import "./module/course.less";                 // 课程模块
+
+
+
+//
+// Component less file
+// ------------------------------
+@import "./components/navigation.less";         // 导航组件样式
+
+
+
+//
+// Reset less file
+// ------------------------------
+@import "./module/reset.less";                  // 重置样式

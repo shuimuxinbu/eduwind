@@ -1,0 +1,721 @@
+/**
+ * less style
+ */
+/** 定义变量 */
+@green: #0AAC87;
+@gray: #F5F5F5;
+
+@md-1: 979px;
+@sm-1: 767px;
+
+
+/**  ----------   公用组件   ----------  */
+// 静止飘浮
+// 主导航静止飘浮
+.fixed-main-nav {
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+    width: 100%;
+    border-bottom: 1px solid @green;
+}
+
+// 主要动态内容
+.main-content {
+}
+
+// 创建新内容按钮
+.create-bar {
+    margin: 30px auto;
+
+    .create-bar-btn {
+        display: block;
+        padding: 15px 30px;
+        text-decoration: none;
+        background-color: @gray;
+        font-size: 1.2em;
+        color: #333;
+    }
+    .create-bar-btn:hover {
+        text-decoration: none;
+        background-color: @green;
+        color: #FFF;
+    }
+}
+
+// 分页
+.pagination {
+    margin: 30px auto;
+    text-align: left;
+    ul {
+        box-shadow: none;
+        li {
+            border: none;
+            background: none;
+            &:hover {
+                background: none;
+            }
+        }
+        li a {
+                margin: 0 4px;
+                border: none !important;
+                border-radius: 0 !important;
+                background: #98A2A3 !important;
+                color: #FFF;
+        }
+        li.active a, li a:hover {
+            color: #FFF;
+            background: #0BAB87 !important;
+        }
+        li.disabled a {
+            color: #999;
+            background: #D6D6D6 !important;
+        }
+    }
+}
+
+// 小菜单
+.menu {
+    margin: 40px 0 30px 0;
+    a {
+        display: inline-block;
+        width: 168px;
+        height: 46px;
+        text-decoration: none;
+        background: #E5E5E5;
+        font-size: 16px;
+        color: #393939;
+        text-align: center;
+        line-height: 46px;
+    }
+    a:hover {
+        color: #FFF;
+        background: #0BAB87;
+    }
+    a.active {
+        color: #FFF;
+        background: #0BAB87;
+    }
+}
+
+
+/**  -----------   Footer   ----------  */
+.light-green-background {
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+
+
+/**  ----------  Container  ----------  */
+.dxd-container {
+    margin-bottom: 28px;
+}
+
+
+
+/**  ----------   Group module   ----------  */
+//小组头部
+.group-header {
+    margin: 20px auto;
+    border-radius: 0;
+    padding: 15px 0;
+    border: none;
+    background: #EEE;
+    min-height: 130px;
+    color: #393939;
+    .pic {
+        position: relative;
+        width: 160px;
+        img {
+            margin-right: 30px;
+            width: 130px;
+            height: 130px;
+        }
+    }
+    .info {
+        .name {
+            font-size: 42px;
+            line-height: 1.5em;
+        }
+        .de {
+            font-size: 20px;
+        }
+    }
+    .admin {
+        box-sizing: border-box;
+        text-align: right;
+        margin-top: 20px;
+        padding-right: 30px;
+        .btn {
+            margin: 0;
+            padding: 0.6em 2em;
+            border: none;
+            background: #FFF;
+            color: #0AAB82; 
+            font-size: 18px;
+        }
+        .btn:hover {
+            background: #0aac87;
+            color: #FFF;
+            font-weight: bold;
+            text-shadow: none;
+        }
+        .info {
+            margin: 0;
+            padding: 10px 0 0 8px;
+            color: #9EA6A8;
+        }
+        .info a {
+            color: #9EA6A8;
+        }
+        @media (max-width: @sm-1){
+        }
+    }
+}
+
+// 小组讨论区
+.group-discuss {
+    .item {
+        padding-left: 2em;
+        font-size: 16px;
+        line-height: 3em;
+        background: #F5F5F5;
+        .title {
+            float: left;
+            max-height: 3em;
+            span {
+                float: right;
+                margin-top: 1em;
+            }
+        }
+        .link {
+            display: inline-block;
+            max-width: 30em;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            margin-right: 1em;
+            color: #555;
+        }
+        .info {
+            float: right;
+            padding-right: 20px;
+            color: #555;
+            span {
+                display: inline-block;
+                text-align: right;
+            }
+            .name {
+                padding-left: 2em;
+                display: inline-block;
+                color: #0AAB8A !important;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+        &:hover {
+            background: #0AAB8A !important;
+            .name{ 
+                color: #FFF !important;
+            }
+            .label {
+                background: #FFF;
+                color: #555;
+                text-shadow: none;
+            }
+            .link, .reply, .date {
+                color: #FFF;
+            }
+        }
+        .label {
+            margin-left: 12px;
+            border-radius: 0;
+            line-height: 2em;
+            width: 4em;
+            text-align: center;
+            background: #0BAB87;
+        }
+    }
+    .even {
+        background: #E5E5E5;
+    }
+    @media screen{
+    }
+    @media (max-width: @sm-1){
+        .item {
+            .title {
+                float: none;
+                overflow: hidden;
+                white-space: nowrap;
+                padding-top: 0.5em;
+                text-align: center;
+                line-height: 2em;
+            }
+            .info {
+                line-height: 2em;
+                margin: 0 auto;
+                float: none;
+                text-align: center;
+                span, .name{
+                    display: inline;
+                    padding: 0 0.5em;
+                }
+            }
+        }
+    }
+}
+
+
+// 小组课程收藏区
+.group-courses {
+	background: #E5E5E5;
+	float: none;
+    padding: 10px 0;
+	margin: 10px auto;
+    .center {
+        float: none;
+        margin: 0 auto;
+    }
+    .thumbnails {
+        margin-bottom: 0;
+    }
+    .group-courses ul {
+        padding: 20px 0; 
+    }
+    .group-course-card {
+        margin: 12px auto 22px;
+        max-width: 270px;
+        .div {
+            background: #FFF;
+        }
+        .info {
+            border: 2px solid #FFF;
+        }
+    }
+}
+/**  ----------        媒体查询        ----------  */
+@media (min-width: 1200px) {
+.group-courses .group-course-card {
+    margin-left: 53px !important;
+        img {
+            width: 270px;
+            height: 200px;
+        }
+    }
+}
+@media (min-width: 980px) and (max-width: 1199px) {
+.group-courses .group-course-card {
+    margin-left: 46px !important;
+        img {
+            width: 220px;
+            height: 162px;
+        }
+    }
+}
+@media (min-width: 768px) and (max-width: 979px) {
+.group-courses .group-course-card {
+    margin-left: 40px !important;
+        img {
+            width: 166px;
+            height: 122px;
+        }
+	}
+}
+@media (max-width: 767px) {
+	.group-courses .group-course-card {
+		margin-left: 34px !important;
+        img {
+            width: 270px;
+            height: 200px;
+        }
+	}
+
+}
+
+
+
+
+// 小组成员
+.group-member {
+    background: #E5E5E5;
+	padding: 20px 4%;
+    img.avatar {
+        width: 80px;
+        height: 80px;
+    }
+    .admin {
+        padding: 15px 0 10px;
+        border-bottom: 2px solid #D8D8D8; 
+        > .info {
+            padding-top: 75px;
+            font-size: 18px;
+            color: #393939;
+            small {
+                color: #686868;
+                line-height: 2.5em;
+            }
+        }
+        .student-card {
+            .de {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                line-height: 1.5em;
+                height: 1.5em;
+            }
+        }
+    }
+    .students {
+        .t {
+            margin: 20px 0 4px 12px;
+            font-size: 20px;
+            color: #383838;
+        }
+        .student-card {
+        }
+    }
+    .student-card {
+        position: relative;
+        float: left;
+        margin: 12px 5% 12px 0;
+        padding: 12px 0;
+        box-sizing: border-box;
+        border: 2px solid #FFF;
+        background: #FFF;
+        width: 30%;
+        color: #555;
+        &:hover {
+            border: 2px solid #0BAB87;
+            background-image: url('../images/hook.gif');
+            background-repeat: no-repeat;
+            background-position:top right;
+            small {
+                display: none;
+            }
+            .de {
+                display: none;
+            }
+            .action {
+                display: block;
+            }
+        }
+        img {
+            padding-left: 10px;
+        }
+        .info {
+            height: 80px;
+            overflow: hidden;
+            .de {
+                position: absolute;
+                bottom: 12px;
+                padding: 0  4px 0 16px;
+                margin: 0;
+                        font-size: 16px;
+                color: #555;
+            }
+            .name {
+                font-size: 24px;
+                padding: 12px 0 0 16px;
+                margin-bottom: 0;
+                a {
+                    color: #555;
+                    background: none;
+                }
+                small {
+                    font-size: 14px;
+                    color: #BBB;
+                }
+            }
+        }
+        .action {
+            position: absolute;
+            bottom: 0; 
+            left: 106px;
+            display: none;
+            a {
+                display: inline-block;
+                padding: 0 1em;
+                margin: 0 12px 12px 0;
+                background: #0BAB87;
+                text-align: center;
+                line-height: 1.8em;
+                color: #FFF;
+                text-decoration: none;
+                
+            }
+        }
+    }
+    .three {
+        margin-right: 0;
+    }
+    @media (max-width: 979px){
+        .admin > .info {
+            display: none;
+        }
+        .student-card {
+margin: none;
+            width: 100%;
+        }
+    }
+}
+
+
+
+/**  ----------   Course module   ----------  */
+// 课程公告
+.course-announcement {
+    h4 {
+        a {
+            padding-right: 4px;
+        }
+    }
+    .announcement-item {
+        font-size: 14px;
+        line-height: 20px;
+        p {
+            margin: 4px 0;
+            font-size: 12px;
+            color: #AAA;
+        }
+        hr {
+            margin: 10px 0;
+        }
+    }
+    .announcement-item:first-of-type {
+        margin-top: 8px;
+    }
+}
+// 所有公告模态框(前台)
+#announcement-list {
+    position: relative;
+    min-height: 300px;
+    .pagination {
+        margin: 12px 0 0;
+        position: absolute;
+        bottom: 0px;
+    }
+}
+
+.add-course {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    a {
+        border: 1px solid #ddd !important;
+        padding: 6px 14px;
+        box-shadow: none;
+        text-shadow: none;
+        background-color: #fff;
+        background-image: none;
+        color: #0aac87;
+        border: none;
+        &:hover {
+            background-color: #0aac87;
+            background-image: none;
+            color: #fff;
+        }
+    }
+}
+
+
+
+/**  ----------   Article module   ---------  */
+.ew-news {
+    margin-bottom: 80px;
+    .breadcrumbs {
+        margin-bottom: 20px;
+        //padding: 1em 15px;
+        font-size: 16px;
+        background: #EFEFEF;
+        .divider, .active {
+            color: #888;
+        }
+        a {
+            color: #484848;
+        }
+    }
+    .article-menu {
+        margin-top: 20px;
+        margin-bottom: 25px;
+    }
+    .menu {
+        margin: 18px 0 30px;
+        li.active {
+            a {
+                background: #0AAC87;
+            }
+        }
+        li {
+            a {
+                margin: 0;
+                border-radius: 0px;
+                display: inline;
+                padding: 12px 35px;
+                height: 1em;
+                background: #CCC;
+                font-size: 14px;
+                &:hover {
+                    background: #0AAC87;
+                }
+            }
+        }
+    }
+    .list-view {
+        padding-top: 0;
+        .pagination {
+            margin: 40px 0;
+        }
+    }
+    .new-item {
+        color: #555;
+        h4 {
+            a {
+                font-size: 20px;
+                color: #555;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+        .data {
+            position: relative;
+            .pull-left {
+                width: 230px;
+            }
+            img {
+                margin-right: 1.5em;
+                width: 210px;
+                height: 140px;
+            }
+            .title{
+                margin-bottom: 5px;
+            }
+          	.title a {
+                color: #0AAC87;
+                font-size:20px;
+                line-height:35px;
+            }
+           .info a {
+                color: #555;
+            }
+        
+            .info {
+                margin-top: 6px;
+                font-size: 14px;
+                line-height: 14px;
+                span {
+                    display: inline-block;
+                    margin-left:15px;
+                }
+                text-align:right;
+
+            }
+            .content {
+                min-height:80px;
+            }
+        }
+        
+    }
+    .items-hot {
+        padding: 10px 0;
+        p {
+            margin-bottom: 0;
+            a {
+                color: #444;
+            }
+        }
+        span {
+            color: #666;
+            margin-right: 12px;
+        }
+        img {
+            width: 59px;
+            height: 40px;
+            margin-right: 12px;;
+        }
+    }
+    .news-view {
+        .breadcrumbs {
+        }
+    }
+    .side {
+        .tag {
+           /* display: block;*/
+           
+            padding: 8px 12px;
+           /* border-left: 4px solid @green;
+           */
+            background: #e99061;
+            font-size: 16px;
+            color: #fff;
+        }
+        a {
+            color: #777;
+        }
+    }
+    .news {
+        box-sizing: border-box;
+        padding-right: 40px;
+        img {
+            display: block;
+            margin: 0 auto 18px;
+        }
+        .info {
+            span {
+                padding-right: 1em;
+                a {
+                    color: #333;
+                }
+            }
+        }
+        .content {
+            p {
+                background: transparent !important;
+            }
+        }
+        .comment {
+            margin-top: 40px;
+        }
+    }
+}
+hr{
+	border-bottom:1px solid #cacaca;
+}
+
+
+
+/**  ----------   Teacher   ---------  */
+.ew-teacher {
+    // 分类菜单
+    .small-menu {
+        margin-top: 20px;
+        margin-bottom: 25px;
+    }
+    // 老师列表
+    .items {
+        // 老师
+        .item {
+            // 老师头像
+            .face {
+                margin-left: 4em;
+                width: 120px;
+                height: 120px;
+            }
+            // 老师信息
+            .info {
+                // 名字
+                .name {}
+                // 介绍
+                .description {}
+            }
+        }
+        hr {
+            border-top: none;
+            border-bottom: 1px solid #DDD;
+            margin: 30px 0;
+        }
+    }
+}

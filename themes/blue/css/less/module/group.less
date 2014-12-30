@@ -1,0 +1,84 @@
+/**
+ * module less style
+ * @author: eduwind
+ */
+
+//
+// Group Module
+// ------------------------------
+#edu-group {
+
+    // 小组帖子列表
+    .list-group-post {
+        .item {
+            .title {
+                color: @color-main;
+            }
+        }
+    }
+
+
+    // 创建小组按钮
+    .create-group-btn {
+        margin-top: 20px;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    // 小组主页头部的管理按钮
+    .group-header {
+        .admin {
+            .btn {
+                color: @color-main !important;
+                &:hover {
+                    background-color: @color-main !important;
+                    color: #fff !important;
+                }
+            }
+        }
+    }
+
+
+    // 小组主页 创建帖子按钮
+    .create-post {
+        &:hover {
+            background-color: @color-main !important;
+        }
+    }
+
+
+    // 小组主页的帖子列表
+    .group-discuss {
+        .items {
+            .item {
+                .info {
+                    .name {
+                        a {
+                            color: @color-main !important;
+                        }
+                    }
+                }
+                &:hover {
+                    background-color:  lighten(@color-main, 8%) !important;
+                    .info .name a {
+                        color: #fff !important;
+                    }
+                }
+            }
+        }
+    }
+
+
+    // 小组主页的成员页面 成员卡片
+    .group-member {
+        .student-card {
+            &:hover {
+                border-color: @color-main !important;
+            }
+            .action a {
+                background-color: @color-main !important;
+            }
+        }
+    }
+
+}

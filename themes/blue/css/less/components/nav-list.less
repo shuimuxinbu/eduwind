@@ -1,0 +1,28 @@
+/**
+ * component less style
+ * @author: eduwind
+ */
+
+
+//
+// nav-list
+// ---------------------------------------------------
+.nav-list {
+    li {
+        &.active {
+            a, a:hover {
+                border: none;
+                background-color: darken(@color-main, 8%);
+                color: #fff;
+                text-shadow: none;
+            }
+        }
+        a {
+            &:hover {
+                background-color: darken(@color-main, 4%);
+                color: #fff;
+                text-shadow: none;
+            }
+        }
+    }
+}

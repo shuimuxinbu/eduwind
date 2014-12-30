@@ -1,0 +1,64 @@
+/**
+ * 课程 less style
+ *
+ * @author: Rod <supgeek.rod@gmail.com>
+ */
+
+/**  课程公告  */
+.course-announcement {
+    h4 {
+        a {
+            padding-right: 4px;
+        }
+    }
+    .announcement-item {
+        font-size: 14px;
+        line-height: 20px;
+        p {
+            margin: 4px 0;
+            font-size: 12px;
+            color: #AAA;
+        }
+        hr {
+            margin: 10px 0;
+        }
+    }
+    .announcement-item:first-of-type {
+        margin-top: 8px;
+    }
+}
+
+
+/**  所有公告模态框(前台)  */
+#announcement-list {
+    position: relative;
+    min-height: 300px;
+    .pagination {
+        margin: 12px 0 0;
+        position: absolute;
+        bottom: 0px;
+    }
+}
+
+
+.add-course {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    a {
+        border: 1px solid #ddd !important;
+        padding: 6px 14px;
+        box-shadow: none;
+        text-shadow: none;
+        background-color: #fff;
+        background-image: none;
+        color: #0aac87;
+        border: none;
+        &:hover {
+            background-color: #0aac87;
+            background-image: none;
+            color: #fff;
+        }
+    }
+}
+

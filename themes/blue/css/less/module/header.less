@@ -1,0 +1,78 @@
+/**
+ * module less style
+ * @author: eduwind
+ */
+
+
+//
+// Layout header
+// ---------------------------------------------------
+#edu-header {
+    .head-bar {
+        background-color: #eee;
+
+        // 搜索栏
+        .ew-search-form {
+            .btn {
+                background-color: @color-main;
+                color: #fff;
+            }
+        }
+    }
+
+
+    /** 固定在顶部的导航栏 */
+    .fixed-main-nav {
+        border-bottom: 1px solid darken(@color-main, 4%);
+    }
+
+
+    /**  */
+    .ew-navigation {
+        nav {
+            border-radius: 0;
+            background-color: @color-main;
+            .navbar-nav {
+                li {
+                    &>a {
+                        color: #fff;
+                    }
+                    &.active {
+                        &>a {
+                            background-color: darken(@color-main, 8%);
+                        }
+                    }
+                    &:hover {
+                        &>a {
+                            background-color: darken(@color-main, 6%);
+                        }
+                    }
+
+                    // 下拉
+                    .dropdown-menu {
+                        li {
+                            a {
+                                color: #333;
+                            }
+                            &:hover {
+                                a {
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+
+
+//
+// 轮播图
+// ---------------------------------------------------
+.main-carousel .carousel-indicators li.active {
+    background-color: @color-main;
+}

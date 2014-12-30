@@ -1,0 +1,326 @@
+/**
+ * module less style
+ * @author: eduwind
+ */
+
+//
+// Home Module
+// ------------------------------
+#edu-home {
+    // 统一的样式
+    #common {
+        .caption {
+            font-size: 20px;
+            line-height: 24px;
+        }
+        .caption-big {
+            border-bottom: 2px solid @color-main;
+            font-size: 22px;
+            padding-bottom: 4px;
+            font-weight: bold;
+        }
+        .more {
+            color: #a60e03;
+            font-size: 18px;
+        }
+        .item-title {
+            text-decoration: clip;
+            white-space: nowrap;
+            margin: 4px 0 8px;
+            display: inline-block;
+        }
+    }
+    
+    //
+    a {
+        color: @color-link;
+        &:hover {
+            color: @color-link - 30;
+        }
+    }
+
+    // 分隔线
+    .edu-separator-home {
+        margin: 36px 0;
+        border: 1px solid @color-main;
+    }
+
+
+    // Section: 课程
+    .panel-course {
+        min-height: 546px;
+        .hair {
+            .caption {
+                #edu-home #common > .caption-big;
+            }
+            .more {
+                #edu-home #common > .more;
+            }
+        }
+        .course-nav {
+            ul {
+                padding-top: 20px;
+                padding-left: 0px;
+                margin: 0;
+                li {
+                    border-bottom: 1px solid #ccc;
+                    list-style: none;
+                    background-color: #eee;
+                    &:hover {
+                        background-color: @color-main;
+                        a {
+                            color: #fff;
+                        }
+                    }
+                    &:last-of-type {
+                        border-bottom: none;
+                    }
+                    &.active {
+                        background: @color-main;
+                        a {
+                            color: #fff;
+                        }
+                    }
+                    a {
+                        display: inline-block;
+                        color: #333;
+                        width: 100%;
+                        font-size: 20px;
+                        line-height: 3em;
+                        text-align: center;
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+        .body {
+            .edu-course-card {
+                .pic {
+                    text-align: center;
+                    img {
+                        width: 270px;
+                        min-height: 200px;
+                    }
+                }
+                .name {
+                    padding: 16px;
+                    font-size: 22px;
+                    line-height: 22px;
+                    a {
+                        display: inline-block;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipse;
+                        width: 100%;
+                    }
+                }
+                .info {
+                    padding: 18px 25px;
+                    border: 2px solid #eee;
+                    color: #999;
+                    .fee {
+                        font-weight: bold;
+                        color: #e8645a;
+                    }
+                }
+                .row {
+                    display: block;
+                }
+            }
+        }
+    }
+
+
+    // Section: 资讯
+    .panel-article {
+        .hair {
+            .caption {
+                #edu-home #common > .caption-big;
+            }
+            .more {
+                a {
+                    padding-left: 1em;
+                    font-size: 16px;
+                    line-height: 22px;
+                    color: #a60e03;
+                }
+            }
+        }
+        .body {
+            width: 100%;
+            .main-separate-line {
+                margin: 15px 0;
+            }
+            .pic {
+                width: 165px;
+                img {
+                    width: 165px;
+                    height: 110px;
+                }
+            }
+            .text {
+                position: relative;
+                padding-left: 1em;
+                margin-left: 165px;
+                height: 110px;
+                overflow: hidden;
+                .title {
+                    a {
+                        margin-bottom: 10px;
+                        font-size: 18px;
+                        line-height: 28px;
+                    }
+                }
+                .content {
+                    color: #888;
+                }
+                .info {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    span {
+                        margin-left: 1em;
+                        color: #999;
+                    }
+                }
+            }
+        }
+    }
+
+
+    // Section: 用户
+    .panel-user {
+        padding: 18px 28px;
+        overflow: hidden;
+        height: 384px;
+        background-color: #eee;
+        .caption {
+            #edu-home #common > .caption;
+        }
+        .list-view {
+            height: 340px;
+            overflow: hidden;
+            
+            ul.items {
+                padding-left: 0;
+                margin-left: 0;
+                li {
+                    margin-top: 20px;
+                    .item-user {
+                        .pic {
+                            width: 70px;
+                            img {
+                                width: 70px;
+                            }
+                        }
+                        .info {
+                            padding-left: 1em;
+                            margin-left: 70px;
+                            height: 70px;
+                            overflow: hidden;
+                            .name {
+                                display: inline-block;
+                                margin: 4px 0;
+                                font-size: 16px;
+                            }
+                        }
+                        .edu-separator {
+                            padding: 10px 0;
+                            border: none;
+                        }
+                    }
+                    &:first-of-type {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+
+
+    // Section: 社区
+    .panel-post {
+        .hair {
+            .caption {
+                #edu-home #common > .caption-big;
+            }
+            .more {
+                #edu-home #common > .more;
+            }
+        }
+        .body {
+            .main-separate-line {
+                margin: 15px 0;
+            }
+            .item-post {
+                .pic {
+                    width: 100px;
+                    img {
+                        width: 100px;
+                        height: 100px;
+                    }
+                }
+                .text {
+                    position: relative;
+                    overflow: hidden;
+                    margin-left: 100px;
+                    padding-left: 1em;
+                    height: 100px;
+                    color: #555;
+                    .title {
+                        #edu-home #common > .item-title;
+                        font-size: 16px;
+                        color: @color-main;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                    .info {
+                        position: absolute;
+                        bottom: 0;
+                        a {
+                            color: #555;
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    // Section: 小组
+    .panel-group {
+        padding: 18px 28px;
+        background-color: #eee;
+        .caption {
+            #edu-home #common > .caption;
+        }
+        .pic {
+            width: 80px;
+            img {
+                width: 80px;
+            }
+        }
+        .info {
+            padding-left: 1em;
+            margin-left: 80px;
+            height: 80px;
+            overflow: hidden;
+            .name {
+                font-size: 16px;
+            }
+        }
+        .edu-separator {
+            padding: 10px 0;
+            border: none;
+        }
+    }
+}
+#edu-home {
+
+}

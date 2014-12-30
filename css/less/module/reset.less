@@ -1,0 +1,42 @@
+/**
+ * 用于重置样式的less文件
+ *
+ * @author: Rod
+ */
+
+//
+// 分类菜单
+// ------------------------------
+.nav-pills {
+    li {
+        margin-left: 0 !important;
+        &:hover {
+            a {
+                background-color: @color-main;
+            }
+        }
+        &.active {
+            a {
+                background-color: darken(@color-main, 8%);
+            }
+            &:hover {
+                a {
+                    background-color: darken(@color-main, 8%);
+                }
+            }
+        }
+    }
+}
+
+.nav-list {
+    li {
+        &.active {
+            a {
+                background-color: darken(@color-main, 8%);
+                color: #fff;
+            }
+        }
+    }
+}
+
+

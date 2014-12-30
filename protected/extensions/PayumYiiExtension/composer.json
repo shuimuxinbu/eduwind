@@ -1,0 +1,6 @@
+{
+    "require": {
+        "payum/payum-yii-extension": "@stable",
+        "payum/payum": "@stable"
+    }
+}
