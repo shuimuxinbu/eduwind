@@ -5,17 +5,16 @@
 	  </ul>
 	  <div class="tab-content">
 	    <div class="tab-pane active" id="tab1">
-  		<p class="lead"><?php echo Yii::t('app','支持从优酷导入视频');?></p>
+  		<h3><?php echo Yii::t('app','支持从优酷导入视频');?></h3>
   	    	    <?php /** @var BootActiveForm $form */
 			$form = $this->beginWidget('booster.widgets.TbActiveForm', array(
 			    'id'=>'horizontalForm2',
 				'action'=>array('createMany','courseId'=>$course->id),
 			)); ?>
-			<div class="row">
-				<?php //echo $form->textFieldGroup($lesson,'mediaUri',array('class'=>'input-block-level','value'=>'请输入优酷专辑地址')); ?>
+			<div class="form-group">
+				<input type="text" name="playList" placeHolder="<?php echo Yii::t('app','请输入优酷专辑地址');?>" class="input-block-level form-control"/>
 			</div>
-				<input type="text" name="playList" placeHolder="<?php echo Yii::t('app','请输入优酷专辑地址');?>" class="input-block-level"/>
-			<div class="row buttons">
+			<div class="buttons">
 				<?php $this->widget('booster.widgets.TbButton',
 					array('label'=>Yii::t('app','提交'),'buttonType'=>'submit','context'=>'primary',
 					'htmlOptions'=>array('class'=>'pull-right'))

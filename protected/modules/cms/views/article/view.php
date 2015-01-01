@@ -44,7 +44,7 @@ $this->breadcrumbs=array(
 
             <!-- JiaThis 分享 -->
             <div style="margin-top: 1em;"></div>
-            <?php $this->widget('ext.jiathis.JiaThis'); ?>
+            <?php $this->widget('ext.jiathis.JiaThis', array('line'=>1)); ?>
 
             <!-- 评论 -->
             <div class="comment">

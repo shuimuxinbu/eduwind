@@ -19,9 +19,17 @@
                 line-height: 22px;
                 height: 34px;
                 width: 240px;
+                background-color: #eee;
+                &:focus {
+                    width: 290px;
+                    outline: none;
+                    background-color: #fff;
+                }
             }
             .btn {
                 float: left;
+                background-color: darken(@color-main, 6%);
+                color: #fff;
             }
         }
     }
@@ -33,6 +41,14 @@
             border-radius: 0;
             box-shadow: rgba(0, 0, 0, 0.0627451) 0 1px 4px 0;
             min-height: 44px;
+            .navbar-header {
+                .navbar-brand {
+                    display: none;
+                    @media (max-width:767px) {
+                        display: block !important;
+                    }
+                }
+            }
             .navbar-collapse {
                 padding: 0;
             }
@@ -51,3 +67,5 @@
         color: #333;
     }
 }
+
+

@@ -77,14 +77,32 @@ class IndexController extends Controller
         $Rate->rateableEntityId = $model->entityId;
         $Rate->addTime = $Rate->upTime = time();
 
-        if ($Rate->save()) {
+        if (!isset($_POST['Rate']['score'])) {
+            // Case: 没有打分
             $rateDataProvider = $model->getRateDataProvider(array('criteria'=>array('order'=>'addTime DESC')));
-            $this->renderPartial(
+            $html = $this->renderPartial(
                 '_viewRate_panel_rate',
                 array(
                     'rateDataProvider'  =>  $rateDataProvider,
-                )
+                ),
+                true
             );
+            $html .= '<script>alert("请给课程打分，再一起发表评价");</script>';
+            echo json_encode(array('html'=>$html, 'error'=>1));
+        } else {
+            // Case: 有打分
+            if ($Rate->save()) {
+                $rateDataProvider = $model->getRateDataProvider(array('criteria'=>array('order'=>'addTime DESC')));
+                $html = $this->renderPartial(
+                    '_viewRate_panel_rate',
+                    array(
+                        'rateDataProvider'  =>  $rateDataProvider,
+                    ),
+                    true
+                );
+                echo json_encode(array('html'=>$html, 'error'=>0));
+            }
+
         }
     }
 

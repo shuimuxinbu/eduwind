@@ -7,7 +7,7 @@ class LessonDocController extends CaController
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout = "/layouts/nonav_column1";
-	
+
 	/**
 	 * @return array action filters
 	 */
@@ -58,7 +58,7 @@ class LessonDocController extends CaController
 				Yii::app()->user->setFlash('success',Yii::t('app','上传成功，可继续上传'));
 			}
 		}
-		
+
 		$this->render('create_fancy',array(
 			'model'=>$model,
 			'lessonId'=>$lessonId,
@@ -136,8 +136,8 @@ class LessonDocController extends CaController
 			Yii::app()->end();
 		}
 	}
-	
-	
+
+
 	/**
 	 * 检查权限
 	 */

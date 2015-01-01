@@ -18,7 +18,12 @@
 			<?php // $img = CHtml::image(Yii::app()->baseUrl."/".DxdUtil::xImage($data->user->face, 25, 25),"images",array('style'=>'width:25px;height:25px;'));
 				  //echo CHtml::link($img,$data->user->name,array('class'=>'dxd-username pull-right', 'data-userId'=>$data->user->id));
 			?>
-			<?php echo CHtml::ajaxLink(' ',array('comment/toggleVote','id'=>$data->id,'value'=>1),array('success'=>'js:function(data){var item=$(".dxd-post-comment-item[data-commentId='.$data->id.']"); item.find(".dxd-post-comment-up").addClass("dxd-voted");item.find(".dxd-post-comment-vote-result").html(data);}'),array('class'=>'pull-right dxd-post-comment-up '.($data->voteUpNum ? "dxd-voted" : "")));?>
+            <?php echo CHtml::ajaxLink(
+                '<i class="glyphicon glyphicon-thumbs-up"></i>',
+                array('comment/toggleVote','id'=>$data->id,'value'=>1),
+                array('success'=>'js:function(data){var item=$(".dxd-post-comment-item[data-commentId='.$data->id.']"); item.find(".dxd-post-comment-up").addClass("dxd-voted");item.find(".dxd-post-comment-vote-result").html(data);}'),
+                array('class'=>'pull-right', 'style'=>'margin-top:0px')
+            );?>
 
 			<div class="muted dxd-post-comment-vote-result pull-right" style="font-size:0.8em;padding-right:5px;" commentId="<?php echo $data->id?>"><?php if($data->voteUpNum || $data->voteDownNum) $this->renderPartial('//vote/result',array('score'=>$data->voteUpNum-$data->voteDownNum,'voteUpers'=>$data->getVoteUperDataProvider()->getData()));?></div>
 			<div class="clearfix"></div>

@@ -10,7 +10,7 @@ $this->pageTitle = Yii::app()->name."-".Yii::t('app',"课程");
 </div>
 <div class="row" style="margin-top:30px; position:relative">
     <!-- 创建课程 -->
-    <div class="add-course hidden-phone pull-right">
+    <div class="add-course hidden-phone pull-right hidden-xs">
         <?php if (Yii::app()->user->checkAccess('teacher')) {
             echo CHtml::link(Yii::t('app','+ 申请创建课程'), array('create'), array('class'=>'btn-primary btn', ''));
         } ?>

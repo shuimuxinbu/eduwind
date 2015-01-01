@@ -6,7 +6,7 @@
         )
     ); ?>
 
-        <?php echo $form->textArea($model, 'content', array('class'=>'content col-sm-12')); ?>
+        <?php echo $form->textArea($model, 'content', array('class'=>'content form-control')); ?>
         <?php $this->widget(
             'CStarRating',
             array(
@@ -21,7 +21,7 @@
                 'readOnly'  =>  false,
             )
         ); ?>
-        <?php echo CHtml::ajaxSubmitButton(Yii::t('app', '发表评论'), array('index/createRate', 'id'=>$courseId), array('success'=>'updateRate'), array('class'=>'btn-submit pull-right')); ?>
+        <?php echo CHtml::ajaxSubmitButton(Yii::t('app', '发表评论'), array('index/createRate', 'id'=>$courseId), array('success'=>'updateRate', 'dataType'=>'json'), array('class'=>'btn-submit pull-right')); ?>
 
     <?php $this->endWidget(); ?>
 
@@ -30,7 +30,9 @@
 
 <script type="text/javascript">
 function updateRate(data) {
-    $('.form-rate .content').attr('value', '');
-    $('.panel-rate').html(data);
+    if (data.error==0) {
+        $('.form-rate .content').attr('value', '');
+    }
+    $('.panel-rate').html(data.html);
 }
 </script>

@@ -691,3 +691,463 @@ Stack trace:
 #26 {main}
 REQUEST_URI=/svn/eduwind/
 ---
+2014/12/31 11:13:50 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S02]: Base table or view not found: 1146 La table 'eduwindos.ew_log' n'existe pas. The SQL statement executed was: DELETE FROM `ew_log` WHERE 0=1.
+2014/12/31 11:13:53 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S02]: Base table or view not found: 1146 La table 'eduwindos.yiisession' n'existe pas. The SQL statement executed was: DELETE FROM `YiiSession` WHERE expire<:expire.
+2014/12/31 11:13:53 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Champ 'userId' inconnu dans where clause. The SQL statement executed was: SELECT `id`
+FROM `YiiSession`
+WHERE userId=:userId.
+2014/12/31 11:13:53 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Champ 'userId' inconnu dans where clause. The SQL statement executed was: SELECT `id`
+FROM `YiiSession`
+WHERE userId=:userId' in F:\wamp\wamp\www\svn\eduwind\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 F:\wamp\wamp\www\svn\eduwind\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 F:\wamp\wamp\www\svn\eduwind\protected\components\EwDbHttpSession.php(328): CDbCommand->queryScalar()
+#2 F:\wamp\wamp\www\svn\eduwind\protected\modules\rights\components\RWebUser.php(24): EwDbHttpSession->getUserOldSession(0)
+#3 F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CModule.php(387): RWebUser->init()
+#4 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(209): CModule->getComponent('user')
+#5 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\auth\CAccessControlFilter.php(132): CWebApplication->getUser()
+#6 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#7 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(282): CController->run('')
+#13 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#14 F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 F:\wamp\wamp\www\svn\eduwind\index.php(39): CApplication->run()
+#16 {main}
+REQUEST_URI=/svn/eduwind/
+---
+2014/12/31 15:59:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/less.min.css".' in F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('css/less.min.cs...')
+#1 F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 F:\wamp\wamp\www\svn\eduwind\index.php(39): CApplication->run()
+#3 {main}
+REQUEST_URI=/svn/eduwind/css/less.min.css
+HTTP_REFERER=http://localhost/svn/eduwind/
+---
+2014/12/31 15:59:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/less.min.css".' in F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('css/less.min.cs...')
+#1 F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 F:\wamp\wamp\www\svn\eduwind\index.php(39): CApplication->run()
+#3 {main}
+REQUEST_URI=/svn/eduwind/css/less.min.css
+HTTP_REFERER=http://localhost/svn/eduwind/course
+---
+2014/12/31 16:00:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/less.min.css".' in F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('css/less.min.cs...')
+#1 F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 F:\wamp\wamp\www\svn\eduwind\index.php(39): CApplication->run()
+#3 {main}
+REQUEST_URI=/svn/eduwind/css/less.min.css
+HTTP_REFERER=http://localhost/svn/eduwind/u/login
+---
+2014/12/31 16:02:13 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S02]: Base table or view not found: 1146 La table 'eduwind1231.yiisession' n'existe pas. The SQL statement executed was: DELETE FROM `YiiSession` WHERE expire<:expire.
+2014/12/31 16:02:14 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Champ 'userId' inconnu dans where clause. The SQL statement executed was: SELECT `id`
+FROM `YiiSession`
+WHERE userId=:userId.
+2014/12/31 16:02:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Champ 'userId' inconnu dans where clause. The SQL statement executed was: SELECT `id`
+FROM `YiiSession`
+WHERE userId=:userId' in F:\wamp\wamp\www\svn\eduwind\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 F:\wamp\wamp\www\svn\eduwind\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 F:\wamp\wamp\www\svn\eduwind\protected\components\EwDbHttpSession.php(328): CDbCommand->queryScalar()
+#2 F:\wamp\wamp\www\svn\eduwind\protected\modules\rights\components\RWebUser.php(24): EwDbHttpSession->getUserOldSession('39')
+#3 F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CModule.php(387): RWebUser->init()
+#4 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(209): CModule->getComponent('user')
+#5 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\auth\CAccessControlFilter.php(132): CWebApplication->getUser()
+#6 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#7 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(282): CController->run('init')
+#13 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('install/init')
+#14 F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 F:\wamp\wamp\www\svn\eduwind\index.php(39): CApplication->run()
+#16 {main}
+REQUEST_URI=/svn/eduwind/index.php?r=install/init
+HTTP_REFERER=http://localhost/svn/eduwind/index.php?r=install/database
+---
+2014/12/31 16:03:23 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Champ 'userId' inconnu dans where clause. The SQL statement executed was: SELECT `id`
+FROM `YiiSession`
+WHERE userId=:userId.
+2014/12/31 16:03:23 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Champ 'userId' inconnu dans where clause. The SQL statement executed was: SELECT `id`
+FROM `YiiSession`
+WHERE userId=:userId' in F:\wamp\wamp\www\svn\eduwind\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 F:\wamp\wamp\www\svn\eduwind\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 F:\wamp\wamp\www\svn\eduwind\protected\components\EwDbHttpSession.php(328): CDbCommand->queryScalar()
+#2 F:\wamp\wamp\www\svn\eduwind\protected\modules\rights\components\RWebUser.php(24): EwDbHttpSession->getUserOldSession('39')
+#3 F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CModule.php(387): RWebUser->init()
+#4 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(209): CModule->getComponent('user')
+#5 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\auth\CAccessControlFilter.php(132): CWebApplication->getUser()
+#6 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#7 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(282): CController->run('database')
+#13 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('install/databas...')
+#14 F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 F:\wamp\wamp\www\svn\eduwind\index.php(39): CApplication->run()
+#16 {main}
+REQUEST_URI=/svn/eduwind/index.php?r=install/database
+HTTP_REFERER=http://localhost/svn/eduwind/index.php?r=install/env
+---
+2014/12/31 16:03:24 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Champ 'userId' inconnu dans where clause. The SQL statement executed was: SELECT `id`
+FROM `YiiSession`
+WHERE userId=:userId.
+2014/12/31 16:03:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Champ 'userId' inconnu dans where clause. The SQL statement executed was: SELECT `id`
+FROM `YiiSession`
+WHERE userId=:userId' in F:\wamp\wamp\www\svn\eduwind\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 F:\wamp\wamp\www\svn\eduwind\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 F:\wamp\wamp\www\svn\eduwind\protected\components\EwDbHttpSession.php(328): CDbCommand->queryScalar()
+#2 F:\wamp\wamp\www\svn\eduwind\protected\modules\rights\components\RWebUser.php(24): EwDbHttpSession->getUserOldSession('39')
+#3 F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CModule.php(387): RWebUser->init()
+#4 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(209): CModule->getComponent('user')
+#5 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\auth\CAccessControlFilter.php(132): CWebApplication->getUser()
+#6 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#7 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(282): CController->run('env')
+#13 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('install/env')
+#14 F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 F:\wamp\wamp\www\svn\eduwind\index.php(39): CApplication->run()
+#16 {main}
+REQUEST_URI=/svn/eduwind/index.php?r=install/env
+HTTP_REFERER=http://localhost/svn/eduwind/
+---
+2014/12/31 16:03:25 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Champ 'userId' inconnu dans where clause. The SQL statement executed was: SELECT `id`
+FROM `YiiSession`
+WHERE userId=:userId.
+2014/12/31 16:03:25 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Champ 'userId' inconnu dans where clause. The SQL statement executed was: SELECT `id`
+FROM `YiiSession`
+WHERE userId=:userId' in F:\wamp\wamp\www\svn\eduwind\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 F:\wamp\wamp\www\svn\eduwind\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 F:\wamp\wamp\www\svn\eduwind\protected\components\EwDbHttpSession.php(328): CDbCommand->queryScalar()
+#2 F:\wamp\wamp\www\svn\eduwind\protected\modules\rights\components\RWebUser.php(24): EwDbHttpSession->getUserOldSession('39')
+#3 F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CModule.php(387): RWebUser->init()
+#4 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(209): CModule->getComponent('user')
+#5 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\auth\CAccessControlFilter.php(132): CWebApplication->getUser()
+#6 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#7 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(282): CController->run('')
+#13 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#14 F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 F:\wamp\wamp\www\svn\eduwind\index.php(39): CApplication->run()
+#16 {main}
+REQUEST_URI=/svn/eduwind/
+---
+2014/12/31 16:06:33 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S01]: Base table or view already exists: 1050 La table 'ew_log' existe d�j�. The SQL statement executed was: CREATE TABLE `ew_log` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `level` VARCHAR(128) NULL DEFAULT NULL,
+    `category` VARCHAR(128) NULL DEFAULT NULL,
+    `logtime` INT(11) UNSIGNED NULL DEFAULT NULL,
+    `message` TEXT NULL,
+    `userId` int(11) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8.
+2014/12/31 16:06:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S01]: Base table or view already exists: 1050 La table 'ew_log' existe d�j�. The SQL statement executed was: CREATE TABLE `ew_log` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `level` VARCHAR(128) NULL DEFAULT NULL,
+    `category` VARCHAR(128) NULL DEFAULT NULL,
+    `logtime` INT(11) UNSIGNED NULL DEFAULT NULL,
+    `message` TEXT NULL,
+    `userId` int(11) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8' in F:\wamp\wamp\www\svn\eduwind\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 F:\wamp\wamp\www\svn\eduwind\protected\controllers\InstallController.php(152): CDbCommand->execute()
+#1 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\actions\CInlineAction.php(49): InstallController->actionDatabase()
+#2 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#4 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#6 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(282): CController->run('database')
+#11 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('install/databas...')
+#12 F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 F:\wamp\wamp\www\svn\eduwind\index.php(39): CApplication->run()
+#14 {main}
+REQUEST_URI=/svn/eduwind/index.php?r=install/database
+HTTP_REFERER=http://localhost/svn/eduwind/index.php?r=install/database
+---
+2014/12/31 16:11:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "job".' in F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('job')
+#1 F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 F:\wamp\wamp\www\svn\eduwind\index.php(39): CApplication->run()
+#3 {main}
+REQUEST_URI=/svn/eduwind/index.php?r=job
+HTTP_REFERER=http://localhost/svn/eduwind/index.php?r=course/index/index
+---
+2014/12/31 16:16:18 [error] [exception.CException] exception 'CException' with message '属性 "Nav.displayRule" 未被定义.' in F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 F:\wamp\wamp\www\svn\eduwind\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('displayRule')
+#1 F:\wamp\wamp\www\svn\eduwind\yii\framework\validators\CStringValidator.php(79): CActiveRecord->__get('displayRule')
+#2 F:\wamp\wamp\www\svn\eduwind\yii\framework\validators\CValidator.php(213): CStringValidator->validateAttribute(Object(Nav), 'displayRule')
+#3 F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CModel.php(159): CValidator->validate(Object(Nav), NULL)
+#4 F:\wamp\wamp\www\svn\eduwind\yii\framework\db\ar\CActiveRecord.php(805): CModel->validate(NULL)
+#5 F:\wamp\wamp\www\svn\eduwind\protected\controllers\InstallController.php(257): CActiveRecord->save()
+#6 F:\wamp\wamp\www\svn\eduwind\protected\controllers\InstallController.php(215): InstallController->setNav()
+#7 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\actions\CInlineAction.php(49): InstallController->actionInit()
+#8 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(291): CFilterChain->run()
+#15 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(282): CController->run('init')
+#17 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('install/init')
+#18 F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 F:\wamp\wamp\www\svn\eduwind\index.php(39): CApplication->run()
+#20 {main}
+REQUEST_URI=/svn/eduwind/index.php?r=install/init
+HTTP_REFERER=http://localhost/svn/eduwind/index.php?r=install/init
+---
+2014/12/31 16:28:29 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in F:\wamp\wamp\www\svn\eduwind\yii\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(282): CController->run('init')
+#8 F:\wamp\wamp\www\svn\eduwind\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('install/init')
+#9 F:\wamp\wamp\www\svn\eduwind\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 F:\wamp\wamp\www\svn\eduwind\index.php(39): CApplication->run()
+#11 {main}
+REQUEST_URI=/svn/eduwind/index.php?r=install/init
+HTTP_REFERER=http://localhost/svn/eduwind/index.php?r=u/login
+---
+2014/12/31 16:28:36 [warning] [application] Failed to set unsafe attribute "superAdminEmail" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+2014/12/31 16:28:36 [warning] [application] Failed to set unsafe attribute "startVersion" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+2014/12/31 16:28:36 [warning] [application] Failed to set unsafe attribute "copyright" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+2014/12/31 16:28:36 [warning] [application] Failed to set unsafe attribute "install" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+2014/12/31 16:28:36 [warning] [application] Failed to set unsafe attribute "superAdminEmail" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+2014/12/31 16:28:36 [warning] [application] Failed to set unsafe attribute "startVersion" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+2014/12/31 16:28:36 [warning] [application] Failed to set unsafe attribute "copyright" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+2014/12/31 16:28:36 [warning] [application] Failed to set unsafe attribute "install" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+2014/12/31 16:28:37 [warning] [application] Failed to set unsafe attribute "superAdminEmail" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+2014/12/31 16:28:37 [warning] [application] Failed to set unsafe attribute "startVersion" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+2014/12/31 16:28:37 [warning] [application] Failed to set unsafe attribute "copyright" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+2014/12/31 16:28:37 [warning] [application] Failed to set unsafe attribute "install" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+2014/12/31 16:30:03 [warning] [application] Failed to set unsafe attribute "superAdminEmail" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+2014/12/31 16:30:03 [warning] [application] Failed to set unsafe attribute "startVersion" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+2014/12/31 16:30:03 [warning] [application] Failed to set unsafe attribute "copyright" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+2014/12/31 16:30:03 [warning] [application] Failed to set unsafe attribute "install" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+2014/12/31 16:30:03 [warning] [application] Failed to set unsafe attribute "superAdminEmail" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+2014/12/31 16:30:03 [warning] [application] Failed to set unsafe attribute "startVersion" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+2014/12/31 16:30:03 [warning] [application] Failed to set unsafe attribute "copyright" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+2014/12/31 16:30:03 [warning] [application] Failed to set unsafe attribute "install" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+2014/12/31 16:30:03 [warning] [application] Failed to set unsafe attribute "superAdminEmail" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+2014/12/31 16:30:03 [warning] [application] Failed to set unsafe attribute "startVersion" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+2014/12/31 16:30:03 [warning] [application] Failed to set unsafe attribute "copyright" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+2014/12/31 16:30:03 [warning] [application] Failed to set unsafe attribute "install" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+2014/12/31 16:30:06 [warning] [application] Failed to set unsafe attribute "superAdminEmail" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+2014/12/31 16:30:06 [warning] [application] Failed to set unsafe attribute "startVersion" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+2014/12/31 16:30:06 [warning] [application] Failed to set unsafe attribute "copyright" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+2014/12/31 16:30:06 [warning] [application] Failed to set unsafe attribute "install" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+2014/12/31 16:30:07 [warning] [application] Failed to set unsafe attribute "superAdminEmail" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+2014/12/31 16:30:07 [warning] [application] Failed to set unsafe attribute "startVersion" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+2014/12/31 16:30:07 [warning] [application] Failed to set unsafe attribute "copyright" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+2014/12/31 16:30:07 [warning] [application] Failed to set unsafe attribute "install" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+2014/12/31 16:30:07 [warning] [application] Failed to set unsafe attribute "superAdminEmail" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\UpgradeClientController.php (57)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\UpgradeClientController.php (57)
+2014/12/31 16:30:07 [warning] [application] Failed to set unsafe attribute "startVersion" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\UpgradeClientController.php (57)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\UpgradeClientController.php (57)
+2014/12/31 16:30:07 [warning] [application] Failed to set unsafe attribute "copyright" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\UpgradeClientController.php (57)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\UpgradeClientController.php (57)
+2014/12/31 16:30:07 [warning] [application] Failed to set unsafe attribute "install" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\UpgradeClientController.php (57)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\UpgradeClientController.php (57)
+2014/12/31 16:30:20 [warning] [application] Failed to set unsafe attribute "superAdminEmail" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+2014/12/31 16:30:20 [warning] [application] Failed to set unsafe attribute "startVersion" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+2014/12/31 16:30:20 [warning] [application] Failed to set unsafe attribute "copyright" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+2014/12/31 16:30:20 [warning] [application] Failed to set unsafe attribute "install" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (39)
+2014/12/31 16:30:20 [warning] [application] Failed to set unsafe attribute "superAdminEmail" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+2014/12/31 16:30:20 [warning] [application] Failed to set unsafe attribute "startVersion" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+2014/12/31 16:30:20 [warning] [application] Failed to set unsafe attribute "copyright" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+2014/12/31 16:30:20 [warning] [application] Failed to set unsafe attribute "install" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\components\UpgradeService.php (177)
+2014/12/31 16:30:20 [warning] [application] Failed to set unsafe attribute "superAdminEmail" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\UpgradeClientController.php (57)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\UpgradeClientController.php (57)
+2014/12/31 16:30:20 [warning] [application] Failed to set unsafe attribute "startVersion" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\UpgradeClientController.php (57)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\UpgradeClientController.php (57)
+2014/12/31 16:30:20 [warning] [application] Failed to set unsafe attribute "copyright" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\UpgradeClientController.php (57)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\UpgradeClientController.php (57)
+2014/12/31 16:30:20 [warning] [application] Failed to set unsafe attribute "install" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\UpgradeClientController.php (57)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\UpgradeClientController.php (57)
+2014/12/31 16:30:21 [warning] [application] Failed to set unsafe attribute "superAdminEmail" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+2014/12/31 16:30:21 [warning] [application] Failed to set unsafe attribute "startVersion" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+2014/12/31 16:30:21 [warning] [application] Failed to set unsafe attribute "copyright" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+2014/12/31 16:30:21 [warning] [application] Failed to set unsafe attribute "install" of "SiteForm".
+in F:\wamp\wamp\www\svn\eduwind\protected\components\behaviors\SettingBehavior.php (82)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)
+in F:\wamp\wamp\www\svn\eduwind\protected\modules\admin\controllers\SettingController.php (36)

@@ -6,6 +6,8 @@
     <meta name="language" content="en" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+    <link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/css/less/legacy/legacy.min.css">
     <link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/css/style.min.css">
     <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/js/function.js"></script>
     <?php if(Yii::app()->theme) : ?>

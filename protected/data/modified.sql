@@ -21,3 +21,5 @@ CREATE TABLE IF NOT EXISTS `YiiSession` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 ALTER TABLE `ew_log` ADD `ip` VARCHAR(128) NOT NULL COMMENT '写log时用户的ip' ;
+
+ALTER TABLE `YiiSession` ADD `userId` int(11) NOT NULL COMMENT '用户id';

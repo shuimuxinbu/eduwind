@@ -1,7 +1,7 @@
 <?php
 ?>
 <div class="row">
-<div class="col-sm-8 center dxd-db-info">
+<div class="col-sm-8 col-sm-offset-2 dxd-db-info">
 	<div class="well">
 	<?php
 $this->renderPartial('_header');
@@ -17,10 +17,10 @@ $this->renderPartial('_header');
 	<?php echo $form->errorSummary($model); ?>
 
 <?php
- echo $form->textFieldGroup($model, 'host',array('class'=>'col-sm-4','value'=>'localhost'));
-  echo $form->textFieldGroup($model, 'dbName',array('class'=>'col-sm-4'));
-  echo $form->textFieldGroup($model, 'dbUser',array('class'=>'col-sm-4','value'=>'root'));
-   echo $form->textFieldGroup($model, 'dbPassword',array('class'=>'col-sm-4'));
+ echo $form->textFieldGroup($model, 'host',array('class'=>'','value'=>'localhost'));
+  echo $form->textFieldGroup($model, 'dbName',array('class'=>''));
+  echo $form->textFieldGroup($model, 'dbUser',array('class'=>'','value'=>'root'));
+   echo $form->textFieldGroup($model, 'dbPassword',array('class'=>''));
    echo $form->checkboxGroup($model, 'create');
 ?>
 			<?php

@@ -37,7 +37,7 @@ class Comment extends EntityActiveRecord
 		)
 		);
 	}
-	
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -67,7 +67,7 @@ class Comment extends EntityActiveRecord
 			'commentableEntity'=> array(self::BELONGS_TO, 'Entity', 'commentableEntityId'),
 			'user' => array(self::BELONGS_TO, 'UserInfo', 'userId'),
 			'refer'=>array(self::BELONGS_TO,'Comment','referId'),
-		
+
 		);
 	}
 
@@ -79,7 +79,7 @@ class Comment extends EntityActiveRecord
 		return array(
 			'id' => 'ID',
 			'title' => 'Title',
-			'content' => 'Content',
+			'content' => '我的回复',
 			'addTime' => 'Add Time',
 	//		'rate' => 'Rate',
 			'userId' => 'User',
@@ -92,11 +92,11 @@ class Comment extends EntityActiveRecord
 	 * comment事件
 	 * Enter description here ...
 	 * @param unknown_type $event
-	 */		
+	 */
 	public function onRecommentAdded($event){
 		$this->raiseEvent("onRecommentAdded",$event);
 	}
-	
+
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *

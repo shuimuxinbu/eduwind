@@ -11,11 +11,7 @@
 
 
 
-<?php 
-Yii::app()->bootstrap->register();
 
-?>
- 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->baseUrl; ?>/css/style.min.css?v=131108" />
 
 
@@ -30,9 +26,6 @@ Yii::app()->bootstrap->register();
  //   'collapse'=>true, // requires bootstrap-responsive.css
     'fixed'=>false,
 	'htmlOptions'=>array('style'=>'margin-bottom:0;'),
-    'items'=>array(
-  
-    ),
 )); ?>
 <?php $this->renderPartial('//layouts/_flash_messages');?>
 <br/><br/>
@@ -43,8 +36,7 @@ Yii::app()->bootstrap->register();
 <br/>
 <div class="container">
 
-	<div id="footer">
-	
+	<div id="footer" class="text-center">
 		Powered by <strong><?php echo CHtml::link("EduWind","http://www.eduwind.me");?></strong>&nbsp;&nbsp;<?php echo Yii::app()->params['settings']['site']['icp'];?>&nbsp;&nbsp;&nbsp;
 	    Copyright &copy; <?php echo "2013-".date('Y'); ?>
 	</div><!-- footer -->

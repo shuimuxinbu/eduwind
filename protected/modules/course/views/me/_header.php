@@ -12,3 +12,12 @@
 		)));
 		?>
 		</div>
+
+<style>
+.my-course-tabs {
+    text-align: center;
+}
+.my-course-tabs .nav-pills {
+    margin-left: 0;
+}
+</style>

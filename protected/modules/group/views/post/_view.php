@@ -13,7 +13,12 @@
         </td>
         <!-- 内容 -->
         <td style="max-width:808px">
-            <?php echo CHtml::ajaxLink(' ',array('post/toggleVote','id'=>$post->id,'value'=>1),array('success'=>'js:function(data){$(".dxd-post-up").addClass("dxd-voted");$(".dxd-post-vote-result").html(data);}'),array('class'=>'pull-right dxd-post-up '.($post->voteUpNum ? "dxd-voted" : "")));?>
+            <?php echo CHtml::ajaxLink(
+                '<i class="glyphicon glyphicon-thumbs-up"></i>',
+                array('post/toggleVote','id'=>$post->id,'value'=>1),
+                array('success'=>'js:function(data){$(".dxd-post-up").addClass("dxd-voted");$(".dxd-post-vote-result").html(data);}'),
+                array('class'=>'pull-right', 'style'=>'margin-top:-3px;')
+            ); ?>
 
             <div style="margin-bottom:5px;"><?php echo CHtml::link($post->user->name,$post->user->pageUrl,array('class'=>'dxd-username','data-userId'=>$post->user->id));?><span class="muted">&nbsp;&nbsp;<?php echo date("Y-m-d H:i",$post->addTime);?></span>
                 <div class="muted dxd-post-vote-result pull-right" style="font-size:0.8em;padding-right:5px;"><?php if($post->voteUpNum || $post->voteDownNum) $this->renderPartial('//vote/result',array('score'=>$post->voteUpNum-$post->voteDownNum,'voteUpers'=>$post->getVoteUperDataProvider()->getData()));?></div>
@@ -67,8 +72,6 @@
     <?php if(!Yii::app()->user->isGuest){?>
     <div class="row" >
     <div style="">
-        <h4><?php echo Yii::t('app','我的回复：');?></h4>
-
         <?php echo $form->textAreaGroup($comment,'content',array(
             'widgetOptions' =>  array(
                 'htmlOptions'   =>  array(

@@ -33,7 +33,7 @@
 <body>
     <!-- EduWind 头部 -->
     <div id="edu-header">
-        <div class="head-bar section-head-bar">
+        <div class="head-bar section-head-bar hidden-xs">
             <div class="container">
                 <div class="" style="padding-top:26px">
                     <form class="pull-right hidden-xs ew-search-form"  method="get" action="<?php echo Yii::app()->createUrl('//search/index');?>">
@@ -76,7 +76,7 @@
             $items=Nav::getTopItems();
             ?>
             <?php $this->widget('booster.widgets.TbNavbar', array(
-                'brand'=>false,
+                'brand'=>'EduWind',
                 'fixed'=>false,
                 'htmlOptions'=>array('style'=>'margin-bottom:0;', 'class'=>''),
                 'items'=>array(
@@ -166,7 +166,7 @@
             ?>
         </div>
         <!-- 全部课程分类 -->
-        <div class="course-category">
+        <div class="course-category hidden-xs">
             <div class="container">
                 <div class="course-category-inner">
                     <div style="margin-bottom:35px">

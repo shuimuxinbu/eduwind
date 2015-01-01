@@ -54,7 +54,7 @@ $config = array(
 			'xupload' => 'ext.xupload',
             'booster' =>  'ext.booster',
 ),
-		'language'=>'zh-CN',
+		'language'=>'zh_CN',
 		'sourceLanguage'=>'zh_cn',
 		'defaultController'=>'site',
 		'modules'=>array(

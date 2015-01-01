@@ -1,9 +1,9 @@
 <?php
 ?>
 <div class="row">
-<div class="col-sm-8 center">
+<div class="col-sm-8 col-sm-offset-2">
 	<div class="well">
-	<?php 
+	<?php
 $this->renderPartial('_header');
 ?>		<br/>
 		<table class="table">
@@ -22,7 +22,7 @@ $this->renderPartial('_header');
 			<span class="text-success">√ <?php echo PHP_VERSION;?></span>
 		<?php else:?>
 			<span class="text-error">× <?php echo PHP_VERSION;?></span>
-		<?php endif;?>				
+		<?php endif;?>
 				</td>
 			</tr>
 			<?php foreach($exts as $key=>$value):?>
@@ -40,7 +40,7 @@ $this->renderPartial('_header');
 			</tr>
 			<?php endforeach;?>
 
-			
+
 
 
 			<tr>
@@ -75,10 +75,10 @@ $this->renderPartial('_header');
 
 		</table>
 		<div class="text-center">
-		<?php 
+		<?php
 		if($pass)
 			echo CHtml::link('下一步',array('database'),array('class'=>'btn btn-primary'));
-		else 
+		else
 			CHtml::link('下一步',"#",array('class'=>'btn btn-primary disabled'));	?>
 		</div>
 	</div>

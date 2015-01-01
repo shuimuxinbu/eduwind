@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.33, for osx10.6 (i386)
+-- MySQL dump 10.13  Distrib 5.6.21, for osx10.10 (x86_64)
 --
--- Host: localhost    Database: eduwind
+-- Host: localhost    Database: edu_trunk
 -- ------------------------------------------------------
--- Server version	5.5.33
+-- Server version	5.6.21
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -79,6 +79,22 @@ CREATE TABLE `Rights` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `YiiSession`
+--
+
+DROP TABLE IF EXISTS `YiiSession`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `YiiSession` (
+  `id` char(32) NOT NULL,
+  `expire` int(11) DEFAULT NULL,
+  `data` longblob,
+  `userId` int(11) NOT NULL COMMENT '用户id',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `ew_announcement`
 --
 
@@ -88,12 +104,11 @@ DROP TABLE IF EXISTS `ew_announcement`;
 CREATE TABLE `ew_announcement` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `courseId` int(11) NOT NULL,
-  `content` text,
-  `addTime` int(11) NOT NULL DEFAULT '0',
-  `upTime` int(11) NOT NULL DEFAULT '0',
-  `userId` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `addTime` int(11) NOT NULL,
+  `upTime` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,12 +120,14 @@ DROP TABLE IF EXISTS `ew_answer`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ew_answer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL,
   `questionId` int(11) NOT NULL,
-  `isCorrect` tinyint(1) NOT NULL DEFAULT '0',
-  `content` text,
+  `content` text COLLATE utf8_unicode_ci,
+  `addTime` int(11) NOT NULL DEFAULT '0',
   `weight` int(11) NOT NULL DEFAULT '0',
+  `isCorrect` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=299 DEFAULT CHARSET=utf8 COMMENT='选项';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,7 +143,7 @@ CREATE TABLE `ew_area` (
   `name` varchar(20) NOT NULL,
   `cityCode` varchar(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3145 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,7 +169,22 @@ CREATE TABLE `ew_article` (
   `status` int(11) NOT NULL DEFAULT '0' COMMENT '状态',
   `isTop` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否置顶',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `ew_bottom_text`
+--
+
+DROP TABLE IF EXISTS `ew_bottom_text`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ew_bottom_text` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `weight` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
+  `content` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='静态页面';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -170,7 +202,7 @@ CREATE TABLE `ew_carousel` (
   `weight` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
   `courseId` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='首页轮播图片';
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='首页轮播图片';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -187,10 +219,10 @@ CREATE TABLE `ew_category` (
   `type` char(64) NOT NULL DEFAULT '' COMMENT '类型,book,course等',
   `weight` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
   `userId` int(11) NOT NULL DEFAULT '0' COMMENT '创建者',
-  `description` text NOT NULL,
-  `asIconName` char(64) NOT NULL DEFAULT '',
+  `description` text,
+  `addTime` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -207,10 +239,10 @@ CREATE TABLE `ew_chapter` (
   `weight` int(11) NOT NULL DEFAULT '0',
   `number` int(11) NOT NULL DEFAULT '0',
   `lessonNum` int(11) NOT NULL DEFAULT '0',
-  `title` char(255) NOT NULL,
+  `title` char(255) COLLATE utf8_unicode_ci NOT NULL,
   `addTime` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -226,7 +258,7 @@ CREATE TABLE `ew_city` (
   `name` varchar(20) NOT NULL,
   `provinceCode` varchar(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=345 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -239,12 +271,12 @@ DROP TABLE IF EXISTS `ew_cms_people`;
 CREATE TABLE `ew_cms_people` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NOT NULL COMMENT '用户ID',
-  `categoryId` int(11) NOT NULL COMMENT '分类ID',
-  `name` varchar(45) DEFAULT NULL COMMENT '教师真实名字',
+  `categoryId` int(11) NOT NULL DEFAULT '0' COMMENT '分类ID',
+  `face` char(255) DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL COMMENT '教师姓名',
   `description` varchar(255) DEFAULT NULL COMMENT '教师简介',
-  `face` char(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 COMMENT='教师表';
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='教师表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -261,7 +293,7 @@ CREATE TABLE `ew_collect` (
   `addTime` int(11) NOT NULL DEFAULT '0' COMMENT '关注时间',
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COMMENT='关注表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='关注表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -287,7 +319,7 @@ CREATE TABLE `ew_comment` (
   `deleteTime` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=225 DEFAULT CHARSET=utf8 COMMENT='评论';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='评论';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -307,9 +339,9 @@ CREATE TABLE `ew_course` (
   `entityId` int(11) NOT NULL DEFAULT '0',
   `categoryId` int(11) NOT NULL DEFAULT '0' COMMENT '课程分类',
   `face` char(255) NOT NULL DEFAULT '' COMMENT '课程头像存放位置',
-  `introduction` text NOT NULL COMMENT '课程简介',
+  `introduction` text COMMENT '课程简介',
   `addTime` int(11) NOT NULL DEFAULT '0' COMMENT '添加时间',
-  `status` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0' COMMENT '状态，ok,applied,created',
   `rateScore` decimal(3,1) NOT NULL DEFAULT '0.0' COMMENT '平均得分',
   `rateNum` int(11) NOT NULL DEFAULT '0' COMMENT '评分人次',
   `targetStudent` varchar(1024) NOT NULL DEFAULT '' COMMENT '目标学员',
@@ -321,39 +353,7 @@ CREATE TABLE `ew_course` (
   `validTime` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COMMENT='课程表';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `ew_course_comment`
---
-
-DROP TABLE IF EXISTS `ew_course_comment`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `ew_course_comment` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `courseId` int(11) NOT NULL,
-  `lessonId` int(11) NOT NULL DEFAULT '0',
-  `commentId` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COMMENT='课程评论关联表';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `ew_course_file`
---
-
-DROP TABLE IF EXISTS `ew_course_file`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `ew_course_file` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `courseId` int(11) NOT NULL,
-  `fileId` int(11) NOT NULL,
-  `status` char(32) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='用于描述某一门课程的视频文件库';
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='课程表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -368,7 +368,7 @@ CREATE TABLE `ew_course_log` (
   `courseId` int(11) NOT NULL,
   `logId` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -387,10 +387,10 @@ CREATE TABLE `ew_course_member` (
   `userId` int(11) NOT NULL DEFAULT '0',
   `roles` char(64) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
-  `commentNum` int(11) NOT NULL DEFAULT '0' COMMENT '回复数',
+  `commentNum` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `courseId` (`courseId`,`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COMMENT='选课成员';
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='选课成员';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -422,7 +422,7 @@ CREATE TABLE `ew_course_post` (
   `deleteTime` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=utf8 COMMENT='讨论区帖子';
+) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COMMENT='讨论区帖子';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -436,7 +436,7 @@ CREATE TABLE `ew_course_quiz_report` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NOT NULL,
   `courseId` int(11) NOT NULL,
-  `quizIds` char(255) NOT NULL DEFAULT '',
+  `quizIds` char(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `avgScore` decimal(5,2) DEFAULT NULL,
   `totalScore` decimal(5,2) DEFAULT NULL,
   `quizNum` int(11) NOT NULL DEFAULT '0',
@@ -444,7 +444,7 @@ CREATE TABLE `ew_course_quiz_report` (
   `partialCorrectNum` int(11) NOT NULL DEFAULT '0',
   `wrongNum` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -458,7 +458,29 @@ CREATE TABLE `ew_entity` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `type` char(32) NOT NULL DEFAULT '' COMMENT 'user,group，post,comment',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=586 DEFAULT CHARSET=utf8 COMMENT='可挂载对象';
+) ENGINE=MyISAM AUTO_INCREMENT=85 DEFAULT CHARSET=utf8 COMMENT='可挂载对象';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `ew_event`
+--
+
+DROP TABLE IF EXISTS `ew_event`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ew_event` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `content` text COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `keyWork` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `addTime` int(11) NOT NULL,
+  `upTime` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `viewNum` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `title_UNIQUE` (`title`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -479,7 +501,7 @@ CREATE TABLE `ew_file` (
   `size` int(11) NOT NULL DEFAULT '0' COMMENT '文件大小',
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='文件';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='文件';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -496,7 +518,7 @@ CREATE TABLE `ew_follow` (
   `addTime` int(11) NOT NULL DEFAULT '0' COMMENT '关注时间',
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=131 DEFAULT CHARSET=utf8 COMMENT='关注表';
+) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COMMENT='关注表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -511,9 +533,9 @@ CREATE TABLE `ew_friend_link` (
   `title` char(128) NOT NULL DEFAULT '' COMMENT '文字',
   `url` char(255) NOT NULL DEFAULT '' COMMENT '链接地址',
   `logo` char(255) NOT NULL DEFAULT '' COMMENT 'logo图片',
-  `weight` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
+  `weight` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='友情链接';
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='友情链接';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -529,7 +551,7 @@ CREATE TABLE `ew_group` (
   `face` char(255) NOT NULL DEFAULT '' COMMENT '头像存放位置',
   `userId` int(11) NOT NULL COMMENT '小组创建人id',
   `addTime` int(11) NOT NULL DEFAULT '0' COMMENT '添加时间',
-  `introduction` text NOT NULL COMMENT '课程简介',
+  `introduction` text COMMENT '课程简介',
   `status` char(32) NOT NULL DEFAULT '' COMMENT '状态，ok,applied,created',
   `memberNum` int(11) NOT NULL DEFAULT '0' COMMENT '人数',
   `viewNum` int(11) NOT NULL DEFAULT '0' COMMENT '点击量',
@@ -537,16 +559,16 @@ CREATE TABLE `ew_group` (
   `joinType` char(32) NOT NULL DEFAULT 'free' COMMENT '加入方式：apply,free',
   `entityId` int(11) NOT NULL DEFAULT '0' COMMENT 'Entity对象Id',
   `isTop` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否推荐',
-  `categoryId` int(11) NOT NULL DEFAULT '0' COMMENT 'åˆ†ç±»',
+  `categoryId` int(11) NOT NULL DEFAULT '0' COMMENT '分类',
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   `deleteTime` int(11) NOT NULL DEFAULT '0',
-  `memberTitle` char(32) NOT NULL DEFAULT '成员',
   `leaderTitle` char(32) NOT NULL DEFAULT '组长',
+  `memberTitle` char(32) NOT NULL DEFAULT '成员',
   `adminTitle` char(32) NOT NULL DEFAULT '管理员',
   PRIMARY KEY (`id`),
   UNIQUE KEY `postableEntityId` (`postableEntityId`),
   KEY `userId` (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COMMENT='小组表';
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='小组表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -566,7 +588,7 @@ CREATE TABLE `ew_group_course` (
   KEY `groupId` (`groupId`),
   KEY `courseId` (`courseId`),
   KEY `userId` (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='小组收藏课程';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='小组收藏课程';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -586,7 +608,7 @@ CREATE TABLE `ew_group_member` (
   `groupId` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=utf8 COMMENT='用户从属关系表';
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='用户从属关系表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -608,38 +630,18 @@ CREATE TABLE `ew_lesson` (
   `mediaUri` char(255) NOT NULL DEFAULT '',
   `mediaName` char(255) NOT NULL DEFAULT '',
   `viewNum` int(11) NOT NULL DEFAULT '0' COMMENT '点击',
-  `introduction` text NOT NULL COMMENT '简介',
+  `introduction` text COMMENT '简介',
   `entityId` int(11) NOT NULL DEFAULT '0',
   `userId` int(11) NOT NULL DEFAULT '0' COMMENT '用户id',
-  `mediaType` char(32) NOT NULL DEFAULT '',
+  `mediaType` char(32) NOT NULL DEFAULT 'video',
   `status` int(11) NOT NULL DEFAULT '0',
   `isFree` tinyint(1) NOT NULL DEFAULT '0',
   `number` int(11) NOT NULL DEFAULT '0',
   `chapterId` int(11) NOT NULL DEFAULT '0',
+  `duration` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `courseId` (`courseId`)
-) ENGINE=MyISAM AUTO_INCREMENT=162 DEFAULT CHARSET=utf8 COMMENT='课时表';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `ew_lesson_chat`
---
-
-DROP TABLE IF EXISTS `ew_lesson_chat`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `ew_lesson_chat` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `lessonId` int(11) NOT NULL DEFAULT '0',
-  `userId` int(11) NOT NULL DEFAULT '0',
-  `playTime` float NOT NULL DEFAULT '0',
-  `fontSize` int(11) NOT NULL DEFAULT '0',
-  `color` int(11) NOT NULL DEFAULT '0',
-  `mode` int(11) NOT NULL DEFAULT '0',
-  `addTime` int(11) NOT NULL DEFAULT '0',
-  `content` char(255) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COMMENT='选课成员';
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='课时表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -653,10 +655,10 @@ CREATE TABLE `ew_lesson_doc` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '文档id',
   `lessonId` int(11) NOT NULL DEFAULT '0' COMMENT '课时id',
   `fileId` int(11) NOT NULL DEFAULT '0' COMMENT '文件id，reference(upload_file)',
-  `description` text NOT NULL COMMENT '文件描述',
+  `description` text COMMENT '文件描述',
   `downloadNum` int(11) NOT NULL DEFAULT '0' COMMENT '下载次数',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='课时文档资料';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='课时文档资料';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -674,7 +676,7 @@ CREATE TABLE `ew_lesson_learn` (
   `finishTime` int(11) NOT NULL DEFAULT '0',
   `status` int(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -685,12 +687,30 @@ DROP TABLE IF EXISTS `ew_log`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ew_log` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `data` varchar(1024) DEFAULT '' COMMENT '数据',
-  `type` char(255) NOT NULL DEFAULT '' COMMENT '通知类型',
-  `addTime` int(11) NOT NULL DEFAULT '0' COMMENT '添加时间',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `level` varchar(128) DEFAULT NULL,
+  `category` varchar(128) DEFAULT NULL,
+  `logtime` int(11) unsigned DEFAULT NULL,
+  `message` text,
+  `userId` int(11) NOT NULL,
+  `ip` varchar(128) NOT NULL COMMENT '写log时用户的ip',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=97 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `ew_mail_log`
+--
+
+DROP TABLE IF EXISTS `ew_mail_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ew_mail_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `email` tinyint(4) NOT NULL DEFAULT '0' COMMENT '邮箱地址',
+  `status` int(11) NOT NULL DEFAULT '0' COMMENT '状态',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -708,7 +728,7 @@ CREATE TABLE `ew_media` (
   `weight` int(11) NOT NULL DEFAULT '0' COMMENT '重量，用于课时排序，weight小的在前',
   `addTime` int(11) NOT NULL DEFAULT '0' COMMENT '添加时间',
   `upTime` int(11) NOT NULL DEFAULT '0' COMMENT '最新修改时间',
-  `introduction` text NOT NULL COMMENT '视频介绍',
+  `introduction` text COMMENT '视频介绍',
   `type` char(32) NOT NULL DEFAULT 'link' COMMENT '课时内容类型',
   `viewNum` int(11) NOT NULL DEFAULT '0' COMMENT '课时点击次数',
   PRIMARY KEY (`id`),
@@ -725,12 +745,12 @@ DROP TABLE IF EXISTS `ew_media_link`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ew_media_link` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `url` char(255) DEFAULT NULL,
-  `source` char(32) DEFAULT NULL,
+  `url` char(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `source` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `duration` int(11) NOT NULL DEFAULT '0',
-  `title` char(255) NOT NULL DEFAULT '',
+  `title` char(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -751,7 +771,7 @@ CREATE TABLE `ew_message` (
   PRIMARY KEY (`id`),
   KEY `fromUserId` (`fromUserId`),
   KEY `toUserId` (`toUserId`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='私信表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='私信表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -767,8 +787,10 @@ CREATE TABLE `ew_nav` (
   `activeRule` char(255) NOT NULL DEFAULT '',
   `weight` int(11) NOT NULL DEFAULT '0',
   `url` char(255) NOT NULL DEFAULT '',
+  `location` char(32) NOT NULL DEFAULT 'top',
+  `displayRule` varchar(45) DEFAULT 'return true;',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -790,7 +812,7 @@ CREATE TABLE `ew_note` (
   `entityId` int(11) NOT NULL DEFAULT '0' COMMENT '更新时间',
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='笔记表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='笔记表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -810,7 +832,7 @@ CREATE TABLE `ew_notice` (
   `isMailed` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=105 DEFAULT CHARSET=utf8 COMMENT='提醒，通知';
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COMMENT='提醒，通知';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -832,7 +854,7 @@ CREATE TABLE `ew_order` (
   `paidTime` int(11) NOT NULL DEFAULT '0',
   `tradeNo` char(32) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=59 DEFAULT CHARSET=utf8 COMMENT='订单';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='订单';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -868,9 +890,10 @@ CREATE TABLE `ew_page` (
   `weight` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
   `published` tinyint(10) NOT NULL DEFAULT '0',
   `key` char(255) NOT NULL DEFAULT '',
+  `categoryId` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='静态页面';
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='静态页面';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -887,6 +910,7 @@ CREATE TABLE `ew_post` (
   `upTime` int(11) DEFAULT NULL COMMENT '更新时间',
   `addTime` int(11) DEFAULT NULL COMMENT '添加时间',
   `userId` int(11) NOT NULL COMMENT '发表者id',
+  `groupId` int(11) NOT NULL,
   `commentNum` int(11) NOT NULL DEFAULT '0' COMMENT '回帖总数',
   `viewNum` int(11) NOT NULL DEFAULT '0' COMMENT '浏览总数',
   `voteNum` int(11) NOT NULL DEFAULT '0' COMMENT '投票总数',
@@ -899,12 +923,9 @@ CREATE TABLE `ew_post` (
   `entityId` int(11) NOT NULL DEFAULT '0' COMMENT 'Entity对象Id',
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   `deleteTime` int(11) NOT NULL DEFAULT '0',
-  `groupId` int(11) NOT NULL,
-  `lastCommentTime` int(11) NOT NULL DEFAULT '0',
-  `lastCommentId` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COMMENT='讨论区帖子';
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COMMENT='讨论区帖子';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -919,7 +940,7 @@ CREATE TABLE `ew_province` (
   `code` varchar(6) NOT NULL,
   `name` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -931,14 +952,30 @@ DROP TABLE IF EXISTS `ew_question`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ew_question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `stem` text,
+  `stem` text COLLATE utf8_unicode_ci,
   `quizId` int(11) NOT NULL DEFAULT '0',
-  `type` char(32) NOT NULL DEFAULT 'mutiple-choice',
+  `type` char(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'multiple-choice',
   `score` decimal(7,1) NOT NULL DEFAULT '1.0' COMMENT '得分',
-  `solution` text,
+  `solution` text COLLATE utf8_unicode_ci,
   `weight` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=183 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `ew_question_choice`
+--
+
+DROP TABLE IF EXISTS `ew_question_choice`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ew_question_choice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `questionId` int(11) NOT NULL,
+  `isCorrect` tinyint(1) NOT NULL DEFAULT '0',
+  `content` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='选项';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -962,7 +999,7 @@ CREATE TABLE `ew_question_report` (
   `eNum` int(11) NOT NULL DEFAULT '0',
   `fNum` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -982,7 +1019,7 @@ CREATE TABLE `ew_question_response` (
   `status` int(11) NOT NULL DEFAULT '0',
   `score` decimal(7,2) NOT NULL DEFAULT '0.00' COMMENT '得分',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=109 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=105 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -994,12 +1031,12 @@ DROP TABLE IF EXISTS `ew_quiz`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ew_quiz` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` char(255) NOT NULL DEFAULT '',
-  `description` text,
-  `questionNum` int(11) NOT NULL DEFAULT '0',
+  `title` char(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `description` text COLLATE utf8_unicode_ci,
   `reportNum` int(11) NOT NULL DEFAULT '0',
+  `questionNum` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1017,55 +1054,11 @@ CREATE TABLE `ew_quiz_report` (
   `correctNum` int(11) NOT NULL DEFAULT '0',
   `wrongNum` int(11) NOT NULL DEFAULT '0',
   `partialCorrectNum` int(11) NOT NULL DEFAULT '0',
-  `teacherRemark` text,
+  `teacherRemark` text COLLATE utf8_unicode_ci,
   `remarkTime` int(11) NOT NULL DEFAULT '0',
   `addTime` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `ew_ranking`
---
-
-DROP TABLE IF EXISTS `ew_ranking`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `ew_ranking` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `modelName` varchar(128) NOT NULL,
-  `modelId` int(11) unsigned NOT NULL,
-  `status` tinyint(2) unsigned NOT NULL DEFAULT '1',
-  `averageScore` tinyint(2) NOT NULL,
-  `addTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `upTime` timestamp NULL DEFAULT NULL,
-  `lockVersion` int(11) DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `single_model_object_record` (`modelName`,`modelId`),
-  KEY `modelId` (`modelId`),
-  KEY `modelName` (`modelName`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `ew_ranking_vote`
---
-
-DROP TABLE IF EXISTS `ew_ranking_vote`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `ew_ranking_vote` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `userId` int(10) unsigned DEFAULT NULL,
-  `scoreRanked` tinyint(2) NOT NULL,
-  `rankingId` int(11) unsigned NOT NULL,
-  `addTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `upTime` timestamp NULL DEFAULT NULL,
-  `lockVersion` int(11) DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `raking_id` (`rankingId`),
-  KEY `user_id` (`userId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1086,7 +1079,7 @@ CREATE TABLE `ew_rate` (
   `rateableEntityId` int(11) NOT NULL DEFAULT '0' COMMENT '被评价者',
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='评价表';
+) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=utf8 COMMENT='评价表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1100,9 +1093,9 @@ CREATE TABLE `ew_system_setting` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `name` char(64) NOT NULL COMMENT '名称',
   `value` text NOT NULL COMMENT '值',
-  `description` text NOT NULL COMMENT '描述',
+  `description` text COMMENT '描述',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='系统设置值表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='系统设置值表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1117,12 +1110,12 @@ CREATE TABLE `ew_upgrade_info` (
   `versionId` int(11) NOT NULL COMMENT '记录服务器上升级包的id',
   `version` varchar(32) NOT NULL COMMENT '版本号',
   `name` varchar(256) NOT NULL COMMENT '包名称',
-  `description` text NOT NULL COMMENT '包描述',
+  `description` text COMMENT '包描述',
   `addTime` int(11) NOT NULL COMMENT '包添加时间',
   `status` varchar(32) NOT NULL DEFAULT 'not installed' COMMENT '包状态：not installed, installed',
   PRIMARY KEY (`id`),
   UNIQUE KEY `versionId` (`versionId`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COMMENT='用来记录网站升级包的信息';
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COMMENT='用来记录网站升级包的信息';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1143,12 +1136,9 @@ CREATE TABLE `ew_upload_file` (
   `name` char(255) NOT NULL DEFAULT '' COMMENT '文件名字',
   `size` int(11) NOT NULL DEFAULT '0' COMMENT '文件大小',
   `storage` char(32) NOT NULL DEFAULT 'local',
-  `convertStatus` char(32) NOT NULL DEFAULT '',
-  `convertKey` char(255) NOT NULL DEFAULT '',
-  `etag` char(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=75 DEFAULT CHARSET=utf8 COMMENT='文件';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='文件';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1166,11 +1156,9 @@ CREATE TABLE `ew_user` (
   `resetPassword` char(64) NOT NULL DEFAULT '' COMMENT '重设密码用',
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   `deleteTime` int(11) NOT NULL DEFAULT '0',
-  `sessionId` char(32) NOT NULL COMMENT '保存用户最近的一个sessionId',
-  `lastAccessTime` int(11) NOT NULL COMMENT '从课程界面最近的一次访问时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COMMENT='用户表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1189,21 +1177,20 @@ CREATE TABLE `ew_user_info` (
   `upTime` int(11) NOT NULL DEFAULT '0' COMMENT '上次登录时间',
   `face` char(255) NOT NULL DEFAULT '' COMMENT '个人头像',
   `status` char(32) NOT NULL DEFAULT '' COMMENT '用户状态，creted，verifying,ok',
-  `introduction` text NOT NULL COMMENT '详细介绍',
+  `introduction` text COMMENT '详细介绍',
   `verifyCode` char(32) NOT NULL DEFAULT '' COMMENT '邮箱验证码',
   `fanNum` int(11) NOT NULL DEFAULT '0' COMMENT '粉丝数',
   `answerNum` int(11) NOT NULL DEFAULT '0' COMMENT '回答数',
   `answerVoteupNum` int(11) NOT NULL DEFAULT '0' COMMENT '赞成数',
-  `tmpEmail` char(64) NOT NULL COMMENT '暂存email，用于社交网站开放登录',
   `sex` char(8) NOT NULL DEFAULT '' COMMENT '性别',
   `entityId` int(11) NOT NULL DEFAULT '0' COMMENT 'Entity对象Id',
   `isTeacher` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否老师',
-  `teacherIntroduction` text NOT NULL COMMENT '老师介绍',
+  `teacherIntroduction` varchar(2048) NOT NULL DEFAULT '',
   `bio` char(255) NOT NULL DEFAULT '' COMMENT '一句话自我介绍',
   `rennId` char(64) NOT NULL DEFAULT '',
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   `deleteTime` int(11) NOT NULL DEFAULT '0',
-  `receiveMailNotify` tinyint(1) NOT NULL DEFAULT '0',
+  `receiveMailNotify` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户信息表';
@@ -1225,7 +1212,21 @@ CREATE TABLE `ew_vote` (
   `upTime` int(11) NOT NULL DEFAULT '0' COMMENT '修改时间',
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COMMENT='记录一次对回答的投票评价';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='记录一次对回答的投票评价';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `tbl_migration`
+--
+
+DROP TABLE IF EXISTS `tbl_migration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_migration` (
+  `version` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `apply_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -1237,3 +1238,4 @@ CREATE TABLE `ew_vote` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+-- Dump completed on 2014-12-31  9:32:29

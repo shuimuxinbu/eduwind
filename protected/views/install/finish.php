@@ -1,9 +1,9 @@
 <?php
 ?>
 <div class="row">
-<div class="col-sm-8 center">
+<div class="col-sm-8 col-sm-offset-2">
 	<div class="well">
-	<?php 
+	<?php
 $this->renderPartial('_header');
 ?>		<br/>
 <div>

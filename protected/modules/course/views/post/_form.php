@@ -18,9 +18,9 @@
 
 	<?php
 	if(isset($lessonId) && $lessonId){
-		echo CHtml::ajaxSubmitButton(Yii::t('app','发布'),array('post/createInLesson','lessonId'=>$lessonId),array('success'=>'onCommentSuccess'),array('class'=>'btn btn-primary pull-right','style'=>'display:none;', 'id'=>'dxd-lesson-post-btn'));
+		echo CHtml::ajaxSubmitButton(Yii::t('app','发布'),array('post/createInLesson','lessonId'=>$lessonId),array('success'=>'onCommentSuccess'),array('class'=>'btn btn-default pull-right','style'=>'', 'id'=>'dxd-lesson-post-btn'));
 	}else{
-		echo CHtml::ajaxSubmitButton(Yii::t('app','发布'),array('post/createInCourse','courseId'=>$courseId),array('success'=>'onCommentSuccess'),array('class'=>'btn btn-primary pull-right','style'=>'display:none;', 'id'=>'dxd-lesson-post-btn'));
+		echo CHtml::ajaxSubmitButton(Yii::t('app','发布'),array('post/createInCourse','courseId'=>$courseId),array('success'=>'onCommentSuccess'),array('class'=>'btn btn-default pull-right','style'=>'', 'id'=>'dxd-lesson-post-btn'));
 	}?>
     <?php $this->endWidget(); ?>
     <div class="clearfix"></div>

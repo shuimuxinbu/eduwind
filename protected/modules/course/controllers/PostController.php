@@ -54,7 +54,7 @@ class PostController extends Controller
 				'users'=>array('*'),
 		),
 		array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','delete','update','setTop','addComment',
+				'actions'=>array('create','delete','update','setTop','addComment', 'index',
 								'toggleVote','toggleFollow','ajaxCreate','createInLesson','createInCourse'),
 				'users'=>array('@'),
 		),

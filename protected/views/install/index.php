@@ -1,9 +1,9 @@
 <?php
 ?>
 <div class="row">
-<div class="col-sm-8 center">
+<div class="col-sm-8 col-sm-offset-2">
 	<div class="well">
-<?php 
+<?php
 $this->renderPartial('_header');
 ?>		<br/>
 		<div>
@@ -45,7 +45,7 @@ I 协议许可的权利</p>
 <p>   4. 有关 EduWind 最终用户授权协议、商业授权与技术服务的详细内容，均由 EduWind 官方网站独家提供。北京水木信步网络科技有限公司拥有在不事先通知的情况下，修改授权协议和服务价目表的权力，修改后的协议或价目表对自改变之日起的新授权用户生效。</p>
   <p>
   电子文本形式的授权协议如同双方书面签署的协议一样，具有完全的和等同的法律效力。您一旦开始安装 EduWind，即被视为完全理解并接受本协议的各项条款，在享有上述条款授予的权力的同时，受到相关的约束和限制。协议许可范围以外的行为，将直接违反本授权协议并构成侵权，我们有权随时终止授权，责令停止损害，并保留追究相关责任的权力。
-  </p>   
+  </p>
 		</div>
 		<div class="text-center">
 		<?php echo CHtml::link('同意协议，并开始安装',array('env'),array('class'=>'btn btn-primary btn-large'))?>

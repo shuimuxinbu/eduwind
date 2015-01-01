@@ -91,7 +91,7 @@ class People extends CActiveRecord
         parent::beforeSave();
         $user = UserInfo::model()->find("name='{$_POST['People']['userName']}'");
         if (!isset($user)) {
-            Yii::app()->user->setFlash('error',Yii::t('app', '用户不存在');
+            Yii::app()->user->setFlash('error',Yii::t('app', '用户不存在'));
             Yii::app()->controller->redirect(array('create', 'userName'=>$_POST['People']['userName']));
         } else {
             $this->userId = $user->id;
