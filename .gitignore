@@ -1,0 +1,11 @@
+#忽略svn文件
+.svn
+忽略当前目录下的.settings文件
+/.settings
+/.buildpath
+/~htaccess
+/.project
+/protected/runtime/cache/
+/assets
+#.gitignore
+
