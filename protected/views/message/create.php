@@ -52,10 +52,10 @@ $(document).ready(function(){
 		var formData = $(this).serialize();
 		$.post(url,formData,function(data){
 			if(data){
-				$(".dxd-message-form").html("<p>发送成功!</p>");   //在这里不能使用Yii::t翻译，可能不能再js中使用
+				$(".dxd-message-form").html("<p><?php echo Yii::t('app','发送成功!');?></p>");   //在这里不能使用Yii::t翻译，可能不能再js中使用
 				setTimeout(function(){$.fancybox.close();},1500);
 			}else{
-				$(".dxd-message-form").append($("<p>发送失败</p>"));
+				$(".dxd-message-form").append($("<p><?php echo Yii::t('app','发送失败!');?></p>"));
 			}
 		});
 		return false;

@@ -11,13 +11,16 @@
 		</div>
 	<div class="pull-right">
 		<?php
-		 $this->widget('booster.widgets.TbButton', array(
+		 /*$this->widget('booster.widgets.TbButton', array(
     'label'=>'<i class="icon-envelope"></i>'.Yii::t('app','发私信'),
 //	'url'=>'javascript:openFancyBox("'.Yii::app()->createUrl('message/create',array('toUserId'=>$user->id)).'");',
    'url'=>array('message/create','toUserId'=>$user->id),
 	'htmlOptions'=>array('style'=>'margin:0 5px;','class'=>"dxd-message-btn",'onclick'=>'openFancyBox(this);return false;'),
      'encodeLabel'=>false,
-	));
+	));*/
+		echo CHtml::link(Yii::t('app','发私信'),
+			array('message/create','toUserId'=>$user->id),
+			array('onclick'=>'openFancyBox(this);return false;','class'=>'btn dxd-message-btn'));
 	?>
 	<?php
 	$isFan = $user->isFan(Yii::app()->user->id);
