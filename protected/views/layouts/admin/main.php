@@ -9,7 +9,11 @@
 
     <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/js/jquery.iframe-auto-height.plugin.min.js?v=131107"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/js/function.js"></script>
-    <link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/css/less/legacy/legacy.min.css">
+
+    <!-- 加载开发使用的 style 和 javascript -->
+    <script>less = {env: 'development'}</script>
+    <!-- dev use --><link rel="stylesheet/less" type="text/css" href="<?php echo Yii::app()->baseUrl; ?>/css/less/bootstrap.less">
+    <!-- dev use --><script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/css/less/other/less.js"></script>   <link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/css/less/legacy/legacy.min.css">
 </head>
 
 <body>
@@ -51,7 +55,7 @@ top: 50px;
 width: 100%;
 bottom: 0px;">
 	<iframe id="main-iframe" src="<?php echo $this->createUrl('setting/site');?>"
- 	width="100%" height="100%" frameborder="0" scrolling="yes" style="overflow: scroll;margin:0;padding:0;">
+ 	width="100%" height="100%" frameborder="0" scrolling="yes" style="overflow: scroll;margin:0;padding:0; padding-bottom:50px;">
 	</iframe>
 
 <?php //echo $content; ?>

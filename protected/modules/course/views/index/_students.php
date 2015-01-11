@@ -6,7 +6,7 @@
 			</h4>
 			<div class="dxd-panel-content">
 
-				<?php 
+				<?php
 			//	var_dump($memberDataProvider);
 				$this->widget('booster.widgets.TbListView', array(
 				    'dataProvider'=>$studentDataProvider,

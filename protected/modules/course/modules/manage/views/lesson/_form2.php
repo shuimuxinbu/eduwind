@@ -28,7 +28,10 @@
     )); ?>
 
     <!-- 课程时长 -->
-    <?php echo $form->textFieldGroup($model, 'duration'); ?>
+    <div class="form-group">
+        <label class="control-label required" for="Lesson_duration">课程时长 (格式:1h20m10s h表示小时 m表示分钟 s表示秒)</label>
+        <?php echo $form->textField($model, 'duration', array('class'=>'form-control', 'placeholder'=>'0h0m0s')); ?>
+    </div>
 
  	<?php echo $form->textAreaGroup($model,'introduction',array('class'=>'input-block-level','style'=>'min-height:90px;'));?>
 	 <?php
@@ -39,6 +42,7 @@
                  'data' =>  array(
                     'lecture'=>Yii::t('app','讲座'),
                     'quiz'=>Yii::t('app','测验'),
+                    'text'=>Yii::t('app','图文'),
                  )
              )
 	    ));

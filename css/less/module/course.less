@@ -14,11 +14,10 @@
     #common {
         .caption {
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
             color: @color-main;
-            font-size: 20px;
-            font-weight: bold;
-            line-height: 26px;
+            font-size: 22px;
+            line-height: 28px;
             border-bottom: 2px solid @color-main;
         }
     }
@@ -31,6 +30,10 @@
         .add-course {
             z-index: 999;
             right: 15px !important;
+        }
+        .btn-phone-create-course {
+            background-color: @color-main;
+            border-color: @color-main;
         }
 
 
@@ -50,6 +53,14 @@
     &.course-home {
         // 头部区域
         .panel-course-header {
+            &.payed {
+                @media (max-width: 767px) {
+                    & {
+                        height: 100px;
+                        overflow: hidden;
+                    }
+                }
+            }
             &.nopay {
                 .pic {
                     width: 405px;
@@ -64,15 +75,18 @@
                         font-size: 20px;
                     }
                     .name {
-                        padding-top: 20px;
-                        height: 110px;
-                        line-height: 110px;
-                        font-size: 48px;
+                        white-space: nowrap;
+                        width: 100%;
+                        padding-top: 10px;
+                        height: 120px;
+                        line-height: 120px;
+                        font-size: 38px;
                     }
                     .info {
-                        padding-top: 30px;
+                        padding-top: 60px;
+                        padding-bottom: 20px;
                         span {
-                            font-size: 20px;
+                            font-size: 16px;
                         }
                     }
                 }
@@ -90,6 +104,14 @@
                 }
             }
             .text {
+                @media (max-width: 767px) {
+                    .course-manage {
+                        .elective-course-btn {
+                            right: auto;
+                            left: 30px !important;
+                        }
+                    }
+                }
                 position: relative;
                 display: table-cell;
                 vertical-align: top;
@@ -140,17 +162,21 @@
                     background-color: darken(@color-main, 8%);
                     .study-line {
                         position: absolute;
-                        top: 36px;
+                        top: 30px;
                         right: 2em;
                         display: inline-block;
                         font-size: 16px;
                         line-height: 1.5em;
                         width: 46%;
                         span {
+                            font-size: 16px;
                         }
                         .progress {
+                            margin: 5px 0 0;
                             border-radius: 0;
-                            .bar {
+                            line-height: 15px;
+                            height: 15px;
+                            .progress-bar-success {
                                 background-color: @color-yellow;
                                 background-image: none;
                             }
@@ -171,13 +197,21 @@
                     height: 120px;
                     padding-left: 30px;
                     div {
+                        @media (max-width: 767px) {
+                            & {
+                                padding-top: 20px;
+                            }
+                        }
                         box-sizing: border-box;
+                        float: left;
                         display: inline-block;
                         border-left: 1px solid #fff;
                         padding: 50px 0;
                         color: #fff;
-                        font-size: 18px;
+                        font-size: 16px;
+                        line-height: 20px;
                         width: 27%;
+                        height: 120px;
                         text-align: center;
                         &:first-child {
                             position: relative;
@@ -226,8 +260,10 @@
             // 课程介绍
             .section-course-introduction {
                 margin-top: @section-margin-top;
+                margin-bottom: 45px;
                 .caption {
                     #edu-course #common > .caption;
+                    padding-left: 8px;
                 }
             }
 
@@ -248,20 +284,12 @@
                             display: inline-block;
                             span {
                                 font-size: 18px !important;
-                                padding-top: 5px;
-                                float: left;
-                                line-height: 20px;
-                                height: 20px;
-                                display: inline-block;
-                            }
-                            a {
-                                margin: 5px 6px 0 0;
                             }
                         }
                     }
-                    a {
+                    > a {
                         display: inline-block;
-                        padding: 2px 8px;
+                        padding: 2px 12px;
                         color: @color-main;
                         font-size: 20px;
                         line-height: 26px;
@@ -316,7 +344,7 @@
                 .form-rate {
                     margin-top: 10px;
                     .content {
-                        margin-bottom: 5px;
+                        margin: 14px 0 12px;
                         display: block;
                         border-radius: 0;
                         height: 80px;
@@ -332,12 +360,15 @@
                 .items {
                     padding-top: 18px;
                     .separator {
-                        margin: 10px 0;
+                        margin: 20px 0;
                         border-bottom: 1px solid #ddd;
                     }
                     .item-post,
                     .item-rate {
                         color: #999;
+                        div:first-child {
+                            margin-bottom: 12px;
+                        }
                         .user {
                             color: @color-link;
                         }
@@ -369,13 +400,14 @@
             // 授课教师
             .section-course-teacher {
                 margin-top: @section-margin-top;
+                margin-bottom: 45px;
                 .caption {
                     #edu-course #common > .caption;
                     border-bottom: 1px solid #fff;
                 }
                 .item-teacher {
+                    padding-left: 20px;
                     .profile {
-                        text-align: center;
                         .pic {
                             img {
                                 width: 78px;

@@ -216,6 +216,11 @@ class Lesson extends EntityActiveRecord
 			$quiz->save();
 			$this->mediaId = $quiz->getPrimaryKey();
 		}
+		if($this->mediaType=="text" && $this->mediaId==0){
+			$quiz = new Text;
+			$quiz->save();
+			$this->mediaId = $quiz->getPrimaryKey();
+		}
 
 		//设置课时数
 		if(!$this->weight || !$this->number){

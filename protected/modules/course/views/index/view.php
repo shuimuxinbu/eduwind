@@ -72,7 +72,7 @@ $this->pageTitle = "$model->name";
                     'booster.widgets.TbThumbnails',
                     array(
                         'dataProvider'  =>  $studentDataProvider,
-                        'template'      =>  '{items} {pager}',
+                        'template'      =>  '{items}',
                         'itemView'      =>  '_view_item_student',
                     )
                 ); ?>

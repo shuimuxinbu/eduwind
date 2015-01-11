@@ -2,9 +2,8 @@
 <html lang="zh-CN">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
@@ -12,6 +11,7 @@
     <link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/css/less/legacy/legacy.min.css">
     <link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/css/style.min.css">
     <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/js/function.js"></script>
+    <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/js/respond.min.js"></script>
 
 
     <!-- 加载主题的 style 和 javascript -->
@@ -23,11 +23,6 @@
             <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/function.js"></script>
         <?php endif; ?>
     <?php endif; ?>
-
-    <!-- 加载开发使用的 style 和 javascript -->
-    <script>less = {env: 'development'}</script>
-    <!-- dev use --><link rel="stylesheet/less" type="text/css" href="<?php echo Yii::app()->baseUrl; ?>/css/less/bootstrap.less">
-    <!-- dev use --><script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/css/less/other/less.js"></script>
 </head>
 
 <body>

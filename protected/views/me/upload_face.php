@@ -45,7 +45,7 @@ $this->widget('xupload.XUpload', array(
 		    'items'=>array(
 		        array('label'=>Yii::t('app','基本信息'), 'url'=>array("//me/setBasic")),
 		        array('label'=>Yii::t('app','个人头像'), 'url'=>array("//me/uploadFace")),
-		        array('label'=>Yii::t('app','邮件通知'), 'url'=>array("me/receiveMail")),
+		       // array('label'=>Yii::t('app','邮件通知'), 'url'=>array("me/receiveMail")),
 		        ),
 		    "htmlOptions"=>array('class'=>"")
 		)); ?>

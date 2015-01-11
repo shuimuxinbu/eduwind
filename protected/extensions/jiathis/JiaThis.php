@@ -13,7 +13,7 @@ class JiaThis extends CWidget
     /**
      * Run widget.
      *
-     * use: $this->widget('ext.jiathis.JiaThis', array('line'=>1, 'picSize'=>16));
+     * use: $this->widget('ext.jiathis.JiaThis', array('line'=>2, 'picSize'=>16));
      */
     public function run()
     {
@@ -21,17 +21,19 @@ class JiaThis extends CWidget
         if ($this->line===2) {
             echo '<span class="text" style="font-size:16px; display:block;">分享到：</span>';
         } else {
-            echo '<span class="text" style="font-size:16px; float:left;">分享到：</span>';
+            echo '<span class="text" style="font-size:16px;">分享到：</span>';
         }
 
         // 分享按钮
         echo '
-            <a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a>
-            <a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
-            <a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a><a title="分享到豆瓣网" href="#" class="bds_douban" data-cmd="douban"></a>
-            <a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a>
-            <a href="#" class="bds_more" data-cmd="more"></a>
-            <div style="clear:both"></div>
+            <div class="btns" style="display: inline-block">
+                <a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a>
+                <a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
+                <a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a><a title="分享到豆瓣网" href="#" class="bds_douban" data-cmd="douban"></a>
+                <a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a>
+                <a href="#" class="bds_more" data-cmd="more"></a>
+                <div style="clear:both"></div>
+            </div>
         ';
 
         echo '</div>';

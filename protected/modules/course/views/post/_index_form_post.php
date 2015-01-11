@@ -6,7 +6,7 @@
         )
     ); ?>
 
-            <?php echo $form->textArea($model, 'content', array('class'=>'content col-sm-12')); ?>
+            <?php echo $form->textArea($model, 'content', array('class'=>'content form-control')); ?>
         <?php echo CHtml::ajaxSubmitButton('发表讨论', array('createInCourse', 'courseId'=>$courseId), array('success'=>'updatePost'), array('class'=>'btn-submit pull-right')); ?>
 
     <?php $this->endWidget(); ?>

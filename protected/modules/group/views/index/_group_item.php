@@ -3,7 +3,7 @@
   		<div style="margin:10px 10px 15px 10px;">
 		<?php 
   		$imgUrl = ($data->face && DxdUtil::xImage($data->face,150,150)) ? Yii::app()->baseUrl."/".DxdUtil::xImage($data->face,150,150) : "http://placehold.it/150x150"?>
-	    <?php $image = CHtml::image($imgUrl,'image',array('style'=>'width: 150px;height:150px;','class'=>'hidden-phone'));
+	    <?php $image = CHtml::image($imgUrl,'image',array('style'=>'width: 150px;height:150px;','class'=>'hidden-xs'));
 	    	echo CHtml::link($image,array('//group/index/view','id'=>$data->id));?>
 	    	</div>
 	   <div class="text-center">

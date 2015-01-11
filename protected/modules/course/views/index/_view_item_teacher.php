@@ -2,11 +2,11 @@
     <div class="profile">
         <?php
         $face = CHtml::image($data->user->xFace);
-        echo Chtml::link($face, array('//u/', 'id'=>$data->user->id), array('class'=>'pic'));
-        echo CHtml::link($data->user->name, array('//u/', 'id'=>$data->user->id), array('class'=>'name'));
+        echo CHtml::link($face, array('//u/view', 'id'=>$data->user->id), array('class'=>'pic'));
+        echo CHtml::link($data->user->name, array('//u/view', 'id'=>$data->user->id), array('class'=>'name'));
         ?>
     </div>
     <div class="introduction">
-        <?php echo $data->user->bio; ?>
+        <?php echo $data->user->introduction; ?>
     </div>
 </div>

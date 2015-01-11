@@ -125,7 +125,15 @@ class LessonController extends CaController
 		$lesson = new Lesson;
 		if(isset($_POST['Lesson'])){
 			$lesson->attributes = $_POST['Lesson'];
-            $lesson->duration = $lesson->duration * 60;
+            // 课程时长处理
+            if (preg_match('/\d{1,}h\d{1,2}m\d{1,2}s/i', $lesson->duration)) {
+                $duration   =   substr($lesson->duration, 0, stripos($lesson->duration, 'h')) * 60 * 60;
+                $duration   +=  substr($lesson->duration, stripos($lesson->duration, 'h') + 1, stripos($lesson->duration, 'm') - stripos($lesson->duration, 'h') - 1) * 60;
+                $duration   +=  substr($lesson->duration, stripos($lesson->duration, 'm') + 1, stripos($lesson->duration, 's') - stripos($lesson->duration, 'm') - 1);
+                $lesson->duration = $duration;
+            } else {
+                $lesson->duration = 0;
+            }
 			if($course->addLesson($lesson)){
 			Lesson::model()->refreshAllChapterIds($courseId);
 				Yii::app()->user->setFlash('success',Yii::t('app','添加成功！'));
@@ -146,10 +154,22 @@ class LessonController extends CaController
 	public function actionUpdate($id){
 		$lesson =$this->loadModel($id);
 		$course = $lesson->course;
-        $lesson->duration = $lesson->duration / 60;
+        // 处理课程时长
+        $duration = $lesson->duration;
+        $lesson->duration   =   floor($duration / (60 * 60)) . 'h';
+        $lesson->duration   .=  floor($duration % (60 * 60) / 60) . 'm';
+        $lesson->duration   .=  floor($duration % (60 * 60) % 60) . 's';
 		if(isset($_POST['Lesson'])){
 			$lesson->attributes = $_POST['Lesson'];
-            $lesson->duration = $lesson->duration * 60;
+            // 课程时长处理
+            if (preg_match('/\d{1,}h\d{1,2}m\d{1,2}s/i', $lesson->duration)) {
+                $duration   =   substr($lesson->duration, 0, stripos($lesson->duration, 'h')) * 60 * 60;
+                $duration   +=  substr($lesson->duration, stripos($lesson->duration, 'h') + 1, stripos($lesson->duration, 'm') - stripos($lesson->duration, 'h') - 1) * 60;
+                $duration   +=  substr($lesson->duration, stripos($lesson->duration, 'm') + 1, stripos($lesson->duration, 's') - stripos($lesson->duration, 'm') - 1);
+                $lesson->duration = $duration;
+            } else {
+                $lesson->duration = 0;
+            }
 			if($lesson->save()){
 				Lesson::model()->refreshAllChapterIds($course->id);
 				Yii::app()->user->setFlash('success',Yii::t('app','保存成功！'));

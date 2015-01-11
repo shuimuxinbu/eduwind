@@ -12,6 +12,10 @@ echo $data->title;
 			if($data->mediaType=="quiz"):
 			?><span class="text-warning ml10" style="font-size:0.9em"><?php echo Yii::t('app','测验');?></span>
 			<?php endif;?>
+		<?php 
+			if($data->mediaType=="text"):
+			?><span class="text-warning ml10" style="font-size:0.9em"><?php echo Yii::t('app','图文');?></span>
+			<?php endif;?>
 		<?php if($data->isFree):?>
 			<span class="text-warning ml10" style="font-size:0.9em"><?php echo Yii::t('app','免费')?></span>
 			<?php endif;?>
@@ -23,6 +27,8 @@ echo $data->title;
  	echo CHtml::link('<i class="icon-plus"></i>'.Yii::t('app','添加内容'),'#lesson-upload-'.$data->id,array('class'=>'ml10','data-toggle'=>'collapse')); 
  }elseif($data->mediaType=="quiz"){
  	echo CHtml::link('<i class="icon-pencil"></i>'.Yii::t('app','编辑测验'),array('quiz/view','id'=>$data->mediaId),array('class'=>'ml10')); 
+ }elseif($data->mediaType=="text"){
+ 	echo CHtml::link('<i class="icon-pencil"></i>'.Yii::t('app','编辑图文'),array('text/update','id'=>$data->mediaId),array('class'=>'ml10')); 
  }
 
 echo CHtml::link('<i class="icon-pencil"></i>'.Yii::t('app','编辑'),array('update','id'=>$data->id),

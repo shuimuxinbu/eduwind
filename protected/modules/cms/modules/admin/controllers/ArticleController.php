@@ -91,10 +91,6 @@ class ArticleController extends CController
     public function actionUpdate($id)
     {
         $model = $this->loadModel($id);
-        $categoryAll = Category::model()->findAll('type=:type', array(':type'=>'article'));
-        foreach ($categoryAll as $v) {
-            $categorys[$v->id] = $v->name;
-        }
 
         if (isset($_POST['Article'])) {
             $model->attributes = $_POST['Article'];
@@ -103,7 +99,7 @@ class ArticleController extends CController
                 $this->redirect(array('index'));
             }
         }
-        $this->render('update', array('model'=>$model, 'categorys'=>$categorys));
+        $this->render('update', array('model'=>$model));
     }
 
     /**
@@ -146,8 +142,6 @@ class ArticleController extends CController
     public function actionCreate()
     {
         $model = new Article();
-        // 文章分类数组
-  //      $categorys = Category::model()->findAll('type=:type', array(':type'=>'article'));
 
         if (isset($_POST['Article'])) {
             $model->attributes = $_POST['Article'];

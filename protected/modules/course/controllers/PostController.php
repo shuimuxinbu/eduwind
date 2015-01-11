@@ -159,6 +159,7 @@ class PostController extends Controller
                 'teacherDataProvider'   =>  $teacherDataProvider,
                 'memberDataProvider'    =>  $memberDataProvider,
                 'postDataProvider'      =>  $postDataProvider,
+				'courseMember' => $courseMember,
             )
         );
 

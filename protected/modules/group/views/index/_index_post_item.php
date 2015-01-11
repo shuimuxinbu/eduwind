@@ -4,7 +4,7 @@
   		<div>
 		<?php 
   		$imgUrl = ($group->face && DxdUtil::xImage($group->face,100,100)) ? Yii::app()->baseUrl."/".DxdUtil::xImage($group->face,100,100) : "http://placehold.it/100x100"?>
-	    <?php $image = CHtml::image($imgUrl,'image',array('style'=>'width: 100px;height:100px;','class'=>'hidden-phone'));
+	    <?php $image = CHtml::image($imgUrl,'image',array('style'=>'width: 100px;height:100px;','class'=>'hidden-xs'));
 	    	echo CHtml::link($image,array('/group/index/view','id'=>$group->id));?>
 	    	</div>
 	   <div class="text-center" style="margin-top:22px;">

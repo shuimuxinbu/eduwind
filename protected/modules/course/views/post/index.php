@@ -11,7 +11,8 @@ $this->pageTitle = "$model->name";
     $this->renderPartial(
         $this->viewHeaderName,
         array(
-            'model' =>  $model
+            'model' =>  $model,
+			'courseMember' => $courseMember
         )
     );
     ?>
@@ -20,12 +21,6 @@ $this->pageTitle = "$model->name";
     <!-- 主要内容区域 -->
     <div class="row mainbody-course">
         <div class="col-sm-9">
-            <!-- 课程介绍 -->
-            <div class="section-course-introduction">
-                <span class="caption">课程介绍</span>
-                <?php echo strip_tags($model->introduction); ?>
-            </div>
-
             <!-- 课程内容 - 讨论 -->
             <div class="section-course-data section-course-post">
                 <div class="caption">

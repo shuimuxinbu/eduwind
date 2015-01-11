@@ -17,29 +17,21 @@ height:520px;
 }
 </style>
 
-
-<?php
-//if($lesson->mediaSource=="self" || $lesson->mediaSource=="cloud"){
-//$this->renderPartial('/lesson/_file_video',array('lesson'=>$lesson));
-//}else{
-//	$mediaUri = DxdUtil::generalYoukuSrc($lesson->mediaUri);
-
-?>
-
-<!--
-<div class="bungeer_video_html5" href="http://v.youku.com/v_show/id_XNjEyODk1MzM2.html" poster="http://www.bungeer.com/static/img/web_hi_res_512.png" width='640' height='360'></div>
-<script type=text/javascript  src="http://bungeer.com/static/js/video_html5.js"></script>
--->
-<?php
-//}
-?>
 <?php
 if($lesson->mediaType=="link"):
 ?>
 <iframe class="dxd-video-iframe" src="<?php echo $lesson->mediaLink->url;?>" frameborder=0 allowfullscreen  height="480px"></iframe>
 <?php elseif($lesson->mediaType=="video"):
 $this->renderPartial('/lesson/_file_video',array('lesson'=>$lesson));
-endif;?>
+elseif($lesson->mediaType == "text"):?>
+<div class="dxd-post-content" style="margin-bottom:30px;">
+<?php
+	$text = Text::model()->findByPk($lesson->mediaId);
+	echo $text->content;
+?>
+</div>
+<?php endif;?>
+
 <div class="mt10">
     <!-- JiaThis 分享 -->
     <div class="pull-left">

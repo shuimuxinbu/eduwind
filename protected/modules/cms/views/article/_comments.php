@@ -14,7 +14,7 @@
 <!-- 发布评论 -->
 <div >
     <?php $comment = new Comment;?>
-    <?php $form=$this->beginWidget('booster.widgets.TBActiveForm', array(
+    <?php $form=$this->beginWidget('booster.widgets.TbActiveForm', array(
         'id'=>'post-comment-form',
         'action'=>array('addComment','id'=>$model->id),
         'clientOptions'=>array('validateOnSubmit'=>true,),

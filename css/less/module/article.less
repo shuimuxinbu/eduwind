@@ -16,6 +16,27 @@
 
     /** 首页 */
     &.page-index {
-        
+        .items {
+            .item {
+                .content {
+                }
+                @media (max-width: 747px) {
+                    .content {
+                        min-height: 1px;
+                    }
+                }
+            }
+        }
+    }
+
+    /** 文章页 */
+    &.page-article {
+        .section-content {
+            .content {
+                & * {
+                    max-width: 100%;
+                }
+            }
+        }
     }
 }

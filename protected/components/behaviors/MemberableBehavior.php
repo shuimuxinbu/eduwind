@@ -29,12 +29,12 @@ class MemberableBehavior extends AbleBehavior{
 	 */
 	public function addMember($userId,$roles=array()){
 		$owner = $this->getOwner();
-		$member = Member::model()->findByAttributes(array('memberableEntityId'=>$owner->entityId,
+		$member = GroupMember::model()->findByAttributes(array('memberableEntityId'=>$owner->entityId,
 														  'userId'=>$userId));
 		if(!$roles) $roles = $this->getDefaultRoles();
 		if(!$member){
 			//插入一条新数据
-			$member = new Member;
+			$member = new GroupMember;
 			$member->userId = $userId;
 			$member->memberableEntityId = $owner->entityId;
 			$member->addTime = time();
@@ -58,7 +58,7 @@ class MemberableBehavior extends AbleBehavior{
 	 */
 	public function removeMember($userId){
 		$owner = $this->getOwner();
-		$member = Member::model()->findByAttributes(array('userId'=>$userId,
+		$member = GroupMember::model()->findByAttributes(array('userId'=>$userId,
 														  'memberableEntityId'=>$owner->entityId));
 
 		if($member && !$member->inRoles(array("superAdmin"))){
@@ -160,7 +160,7 @@ class MemberableBehavior extends AbleBehavior{
 	 * 获取成员数量，计入超级管理员
 	 */
 	public function getMemberCount(){
-		$result = Member::model()->count("memberableEntityId=:entityId and (find_in_set('superAdmin',roles) or find_in_set('admin',roles) or find_in_set('member',roles))",array(':entityId'=>$this->getOwner()->entityId));
+		$result = GroupMember::model()->count("memberableEntityId=:entityId and (find_in_set('superAdmin',roles) or find_in_set('admin',roles) or find_in_set('member',roles))",array(':entityId'=>$this->getOwner()->entityId));
 		return intval($result);
 
 	}

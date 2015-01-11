@@ -7,7 +7,7 @@
  */
 class UpgradeForm extends CFormModel
 {
-	public $serverUrl="http://wiiedu.net/index.php?r=";
+	public $serverUrl="http://www.eduwind.com/index.php?r=";
 	public $version = "1.2.0";
 	
 		

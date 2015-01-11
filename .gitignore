@@ -8,4 +8,5 @@
 /protected/runtime/cache/
 /assets
 #.gitignore
-
+.DS_Store
+.htaccess

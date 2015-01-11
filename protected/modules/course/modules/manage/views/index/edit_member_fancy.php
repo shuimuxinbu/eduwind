@@ -9,8 +9,8 @@ $form=$this->beginWidget('booster.widgets.TbActiveForm', array(
 	'enableAjaxValidation'=>false,
 )); ?>
 
-
-    <?php echo $form->checkBoxListGroup($member, 'arrRoles',$roleItems); ?>
+	
+    <?php echo $form->checkBoxList($member, 'arrRoles',$roleItems); ?>
     <br/>
     <br/>
 	<div class="row buttons">

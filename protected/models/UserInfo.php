@@ -58,9 +58,10 @@ class UserInfo extends EntityActiveRecord
 		array('isAdmin, addTime, upTime,rennId', 'numerical', 'integerOnly'=>true),
 		array('name,email','unique'),
 		array('email, name', 'length', 'max'=>64),
-		array('introduction,status','type','type'=>'string','allowEmpty'=>true),
+		array('verifyCode','length','max'=>32),
+		array('introduction,status,verifyCode','type','type'=>'string','allowEmpty'=>true),
 		array('face,bio', 'length', 'max'=>255),
-		array('introduction,bio,name','filter','filter'=>array($obj=new CHtmlPurifier(),'purify')),
+		array('introduction,bio,name,verifyCode','filter','filter'=>array($obj=new CHtmlPurifier(),'purify')),
 		// The following rule is used by search().
 		// Please remove those attributes that should not be searched.
 		array('id, email, name,bio, isAdmin, addTime,roles, upTime', 'safe', 'on'=>'search'),

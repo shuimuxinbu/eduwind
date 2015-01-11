@@ -3,9 +3,9 @@
 /* @var $data Article */
 ?>
 
-<div class="new-item">
+<div class="new-item item">
     <div class="data">
-        <div class="pull-left hidden-phone">
+        <div class="pull-left hidden-xs">
             <img src="<?php echo Yii::app()->baseUrl."/".$data->face ?>">
         </div>
 

@@ -6,7 +6,7 @@
     <div class="text">
         <span class="title"><?php echo CHtml::link($data->title, array('//cms/article/view', 'id'=>$data->id), array('class'=>'main-color')); ?></span>
         <div class="content"><?php echo mb_substr(strip_tags($data->content), 0, 190, 'utf-8'); ?></div>
-        <div class="info hidden-phone">
+        <div class="info hidden-xs">
             <span><?php echo date('Y-m-d', $data->addTime); ?></span>
             <span><i class="icon-eye-open"></i> <?php echo $data->viewNum; ?></span>
         </div>

@@ -607,16 +607,16 @@ class IndexController extends Controller
 			));
 			//$this->render('buy',array('htmlText'=>$htmlText));
 		}else {
-			//$member = new CourseMember;
-			//$member->userId = Yii::app()->user->id;
-			//$member->courseId = $model->id;
-			//$member->startTime = time();
-			//$member->arrRoles = array('student');
-			//if($member->save()){
-			//	Yii::app()->user->setFlash('success',Yii::t('app','加入成功！'));
-			//}else{
-			//	Yii::app()->user->setFlash('error',Yii::t('app','错误，加入失败！'));
-			//}
+			$member = new CourseMember;
+			$member->userId = Yii::app()->user->id;
+			$member->courseId = $model->id;
+			$member->startTime = time();
+			$member->arrRoles = array('student');
+			if($member->save()){
+				Yii::app()->user->setFlash('success',Yii::t('app','加入成功！'));
+			}else{
+				Yii::app()->user->setFlash('error',Yii::t('app','错误，加入失败！'));
+			}
 			$this->redirect(array('view','id'=>$id));
 		}
 	}

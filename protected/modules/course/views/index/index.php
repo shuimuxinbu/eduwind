@@ -5,18 +5,18 @@ $this->pageTitle = Yii::app()->name."-".Yii::t('app',"课程");
 <!-- 创建课程 -->
 <div class="row visible-xs">
 <?php if (Yii::app()->user->checkAccess('teacher')) {
-    echo CHtml::link(Yii::t('app','+ 申请创建课程'), array('create'), array('class'=>'btn btn-primary clo-xs-12'));
+    echo CHtml::link(Yii::t('app','+ 申请创建课程'), array('create'), array('class'=>'btn-phone-create-course btn btn-primary btn-block'));
 } ?>
 </div>
 <div class="row" style="margin-top:30px; position:relative">
     <!-- 创建课程 -->
-    <div class="add-course hidden-phone pull-right hidden-xs">
+    <div class="add-course hidden-xs pull-right hidden-xs">
         <?php if (Yii::app()->user->checkAccess('teacher')) {
             echo CHtml::link(Yii::t('app','+ 申请创建课程'), array('create'), array('class'=>'btn-primary btn', ''));
         } ?>
     </div>
 <div class="col-sm-12">
-<div class="pull-left mr15 main-color" style="font-size:1.2em;line-height:32px;"><?php echo Yii::t('app','大类')?></div>
+<div class="pull-left mr15 main-color" style="font-size:1.2em;line-height:40px;"><?php echo Yii::t('app','大类')?></div>
     <div class="course-category-tabs">
 
 <?php
@@ -33,7 +33,7 @@ $this->widget('booster.widgets.TbMenu', array(
 </div>
 </div>
 <div class="col-sm-12">
-<div class="pull-left mr15 main-color"  style="font-size:1.2em;line-height:32px;"><?php echo Yii::t('app','小类');?></div>
+<div class="pull-left mr15 main-color"  style="font-size:1.2em;line-height:40px;"><?php echo Yii::t('app','小类');?></div>
     <div class="course-category-tabs">
 <?php
 $secondCategoryItems = array();

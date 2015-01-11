@@ -20,7 +20,7 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<div class="container ew-news">
+<div class="container ew-news page-article" id="edu-article">
     <div class="row">
         <div class="col-sm-12">
             <?php $this->widget('booster.widgets.TbBreadcrumbs', $this->breadcrumbs); ?>
@@ -29,7 +29,7 @@ $this->breadcrumbs=array(
 
     <div class="row">
         <!-- Article -->
-        <div class="col-sm-8 news">
+        <div class="col-sm-8 news section-content">
             <h2 class="text-center"><?php echo $model->title ?></h2>
             <div class="text-center info">
                 <span><?php echo Yii::t('app', '发布时间:');?> <?php echo date('Y-m-d', $model->addTime); ?> </span>

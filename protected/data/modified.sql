@@ -22,4 +22,11 @@ CREATE TABLE IF NOT EXISTS `YiiSession` (
 
 ALTER TABLE `ew_log` ADD `ip` VARCHAR(128) NOT NULL COMMENT '写log时用户的ip' ;
 
-ALTER TABLE `YiiSession` ADD `userId` int(11) NOT NULL COMMENT '用户id';
+CREATE TABLE `ew_media_text` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `title` char(255) NOT NULL DEFAULT '' COMMENT '标题',
+  `content` text NOT NULL DEFAULT '' COMMENT '内容',
+  `addTime` int(11) NOT NULL DEFAULT '0' COMMENT '添加时间',
+  `upTime` int(11) NOT NULL DEFAULT '0' COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='文本课时';

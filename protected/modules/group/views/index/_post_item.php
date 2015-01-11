@@ -7,7 +7,7 @@
         ?>
     </div>
 
-    <div class="info hidden-phone">
+    <div class="info hidden-xs">
         <span class="name">
             <?php
             echo Yii::t('app','作者: ');
@@ -17,7 +17,7 @@
         <span class="date"> <?php echo Yii::t('app','最后回复:');?> <?php echo DxdUtil::duration2Day(time() - $data->upTime) ?> </span>
         <span class="reply"> <?php echo $data->commentNum ?> <?php echo Yii::t('app','回应');?></span>
     </div>
-    <div class="info visible-phone">
+    <div class="info visible-xs">
         <span class="name0">
             <?php
             echo Yii::t('app','作者: ');

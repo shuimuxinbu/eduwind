@@ -29,14 +29,15 @@
 		<?php echo $form->textFieldGroup($model,'subTitle',array('value'=>$model->subTitle)); ?>
 
 		<?php echo $form->fileFieldGroup($model,'logo'); ?>
-		<div class="control-group">
-			<div class="controls">
+		<div class="form-group" style="margin-top:-25px">
+			<div class="col-sm-offset-3 col-sm-9">
 			<?php
 			if($model->logo)
 				echo CHtml::image(Yii::app()->baseUrl."/".$model->logo,"",array('style'=>'width:100px;background-color:#f5f5f5;padding:10px;',));
 			?>
 			</div>
 		</div>
+
 		<?php echo $form->textFieldGroup($model,'icp',array('value'=>$model->icp)); ?>
 		<?php echo $form->textFieldGroup($model,'poweredBy',array('value'=>$model->poweredBy)); ?>
 		<?php echo $form->textFieldGroup($model,'poweredByUrl',array('value'=>$model->poweredByUrl)); ?>

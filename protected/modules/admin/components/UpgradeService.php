@@ -7,7 +7,7 @@
  */
 class UpgradeService extends CComponent{
 	private $_serverUrl;
-	public $defaultServerUrl = 'http://www.wiiedu.net/index.php?r=';
+	public $defaultServerUrl = 'http://www.eduwind.com/index.php?r=';
 	//static $serverUrl = 'http://localhost/eduhome/index.php?r=';
 	public $checkUpgradeUrl = 'upgradeServer/checkUpgrade';
 	public $downloadUrl = 'upgradeServer/download';

@@ -62,6 +62,11 @@ class UController extends Controller
 		//									'answerDataProvider'=>$answerDataProvider
 			));
 	}
+
+	public function actionView($id){
+		$this->redirect(array('index','id'=>$id));
+	}
+
 	/**
 	 * 显示用户名片信息
 	 */
@@ -89,8 +94,14 @@ class UController extends Controller
 	 */
 	public function actionRegister()
 	{
-		$model=new RegisterForm('register');
 		global $sysSettings;
+        // 判断是否有关闭用户注册
+        if (isset($sysSettings['register']) && $sysSettings['register']['isEnabled'] == 0) {
+            $this->render('register_close', array('message'=>$sysSettings['register']['message']));
+            Yii::app()->end();
+        }
+
+		$model=new RegisterForm('register');
 		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='register-form')
 		{
@@ -113,7 +124,7 @@ class UController extends Controller
 					$this->userOk($model->email);
 					$this->redirect(array('u/uploadFace'));
 				}
-				else{ 
+				else{
 					$this->redirect(array("u/verify","email"=>urlencode($model->email)));
 				}
 			}
@@ -166,6 +177,7 @@ class UController extends Controller
 			Yii::app()->end();
 		}
 
+
 		if($userInfo->verifyCode==$verifyCode && $userInfo->status=="verifying"){
 			//验证邮件
 			$this->userOk($userInfo->email);
@@ -190,7 +202,7 @@ class UController extends Controller
 			$userInfo->save();
 			$this->redirect(array('cropFace'));
 		}
-		$this->render("register_face",array('id'=>$userInfo->id,'userInfo'=>$userInfo));	
+		$this->render("register_face",array('id'=>$userInfo->id,'userInfo'=>$userInfo));
 
 	}
 
@@ -218,7 +230,7 @@ class UController extends Controller
 			}
 			Yii::app()->user->setFlash('success',Yii::t('app',"欢迎{name}加入！",array('{name}'=>$user->name)));
 			$this->redirect(Yii::app()->baseUrl."/");
-			//	echo $jcropper->thumbPath;			
+			//	echo $jcropper->thumbPath;
 		//	echo $thumbnail;
 		}
 		$this->render('register_crop_face',array('user'=>$user));
@@ -234,7 +246,7 @@ class UController extends Controller
 		$users = $dataProvider->getData();
 		$items=array();
 		foreach($users as $user){
-			$items[] = $user->name;			
+			$items[] = $user->name;
 		}
 		echo json_encode($items);
 	}
@@ -319,7 +331,7 @@ class UController extends Controller
 
 		// collect user input data
 		if(isset($_POST['LoginForm'])){
-			
+
 			$model->attributes=$_POST['LoginForm'];
 
 			$user = UserInfo::model()->findByAttributes(array('email'=>$model->username));
@@ -357,10 +369,10 @@ class UController extends Controller
 					Yii::import('ext.ucenter.MUcenter',true);
 					$script = uc_user_synlogin ( Yii::app()->user->ucenterId );
 					$this->layout = "none";
-					$this->render('login_success_ucenter', array(  
-					 	'script' => $script,  
-					 	));  
-					Yii::app()->end(); 
+					$this->render('login_success_ucenter', array(
+					 	'script' => $script,
+					 	));
+					Yii::app()->end();
 				}else{
 					$this->redirect(Yii::app()->user->returnUrl);
 				}
@@ -385,11 +397,11 @@ class UController extends Controller
         if(isset($sysSettings['partner']['mode']) && $sysSettings['partner']['mode']=='ucenter'){
 			//ucenter
 			Yii::import('ext.ucenter.MUcenter',true);
-			$script = uc_user_synlogout();  
-			$this->render('logout_success_ucenter', array(  
-				'script' => $script,  
-				));  
-			Yii::app()->end();  
+			$script = uc_user_synlogout();
+			$this->render('logout_success_ucenter', array(
+				'script' => $script,
+				));
+			Yii::app()->end();
 		}else{
 
 			//$this->redirect(Yii::app()->homeUrl);

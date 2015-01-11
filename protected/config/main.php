@@ -52,7 +52,7 @@ $config = array(
 ),
 		'aliases'=>array(
 			'xupload' => 'ext.xupload',
-            'booster' =>  'ext.booster',
+            'booster' =>  'application.extensions.booster',
 ),
 		'language'=>'zh_CN',
 		'sourceLanguage'=>'zh_cn',
@@ -242,27 +242,11 @@ $config = array(
 						'class' => 'CFileLogRoute',
 						'levels' => 'error, warning, trace, info',
 				        ),
-                    /*
-                    array(
-                        'class'    => 'CFileLogRoute',
-                        'levels'   => 'error, warning, info, trace',
-                        'logFile' => 'console.log',
-                        'categories'=>'system.db.*',
-                    ),
-                    array(
-                        'class'=>'CDbLogRoute',
-                        'connectionID'=>'db',
-                        'logTableName' => 'ew_logs',
-                        'levels'=>'error, warning, trace, info',
-                        'categories'=>'eduwind.*',
-                    ),
-                    */
 		),
 	),
 
 ),
-	),
-
+	)
 );
 global $sysSettings;
 if(isset($sysSettings['site']['urlFormat']) && $sysSettings['site']['urlFormat']=="path"){
