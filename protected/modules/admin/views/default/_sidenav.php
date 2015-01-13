@@ -8,6 +8,7 @@
 	if ($upgradeCount>0) {
 		$upgradelabel .= $this->widget('booster.widgets.TbBadge',array(
 										'label'=>$upgradeCount,
+                                        'context'   =>  'danger',
 									),true);
 	}
 

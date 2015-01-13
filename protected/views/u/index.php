@@ -18,15 +18,16 @@
 	'htmlOptions'=>array('style'=>'margin:0 5px;','class'=>"dxd-message-btn",'onclick'=>'openFancyBox(this);return false;'),
      'encodeLabel'=>false,
 	));*/
-		echo CHtml::link(Yii::t('app','发私信'),
+        echo CHtml::link(
+            Yii::t('app','发私信'),
 			array('message/create','toUserId'=>$user->id),
-			array('onclick'=>'openFancyBox(this);return false;','class'=>'btn dxd-message-btn'));
+			array('onclick'=>'openFancyBox(this);return false;','class'=>'btn btn-default dxd-message-btn'));
 	?>
 	<?php
 	$isFan = $user->isFan(Yii::app()->user->id);
 	echo CHtml::link(($isFan ? Yii::t('app','取消关注'):'<i class="icon-plus icon-white"></i>'.Yii::t('app','关注')),
 						array('u/toggleFollow','id'=>$user->id),
-						array('onclick'=>'toggleFollow(this);return false;','id'=>'dxd-user-followed-'.$user->id,'class'=>'btn dxd-user-followed-'.$user->id." ".($isFan ? ' ':' btn-success '))
+						array('onclick'=>'toggleFollow(this);return false;','id'=>'dxd-user-followed-'.$user->id,'class'=>'btn btn-default dxd-user-followed-'.$user->id." ".($isFan ? ' ':' btn-success '))
 					);
 ?>
 	</div>

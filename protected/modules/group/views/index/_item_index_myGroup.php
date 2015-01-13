@@ -1,4 +1,4 @@
-<div class="item col-sm-1">
+<div class="item col-sm-4">
     <div class="pic">
         <?php
         $face = CHtml::image($data->xFace, $data->name);

@@ -143,7 +143,7 @@ class UserController extends RController
 		if(isset($_POST['UserInfo']))
 		{
 			$model->attributes=$_POST['UserInfo'];
-			$model->arrRoles = $_POST['UserInfo']['arrRoles'];
+			/*$model->arrRoles = $_POST['UserInfo']['arrRoles'];
 			$operator = UserInfo::model()->findByPk(Yii::app()->user->id);
 			if($operator->inRoles(array('admin')) && !$operator->inRoles(array('superAdmin'))){
 				$arrRoles = $model->arrRoles;
@@ -151,7 +151,7 @@ class UserController extends RController
 					if($item=="admin"|| $item=="superAdmin") unset($arrRoles[$key]);
 				}
 				$model->arrRoles = $arrRoles;
-			}
+			}*/
 			if($model->save()){
 				Yii::app()->user->setFlash('success','保存成功');
 				$this->redirect(array('admin','id'=>$model->id));

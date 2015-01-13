@@ -68,20 +68,20 @@ $this->widget('booster.widgets.TbGridView', array(
             'htmlOptions'=>array('style'=>'width: 60px'),
 			'buttons'=>array(
 				'frozen'=>array(
-					'label'=>'<i class="icon-pause"></i>',
+					'label'=>'<i class="glyphicon glyphicon-pause"></i>',
            			'url'=>'Yii::app()->getController()->createUrl("toggleFrozened", array("id"=>$data->id))',
             		'visible'=>'$data->status !== "frozened"',
 					'options'=>array('title'=>"冻结用户"),
 				),
 				'unfrozen'=>array(
-					'label'=>'<i class="icon-play"></i>',
+					'label'=>'<i class="glyphicon glyphicon-play"></i>',
            			'url'=>'Yii::app()->getController()->createUrl("toggleFrozened", array("id"=>$data->id))',
             		'visible'=>'$data->status == "frozened"',
      				'options'=>array('title'=>"解除冻结"),
 				//	'htmlOptions'=>array('class'=>'dxd-fancy-elem'),
 				),
 				'setRoles'=>array(
-					'label'=>'<i class="icon-user"></i>',
+					'label'=>'<i class="glyphicon glyphicon-user"></i>',
            			'url'=>'Yii::app()->getController()->createUrl("setRoles", array("id"=>$data->id))',
      				'options'=>array('title'=>"设置角色组"),
 				),

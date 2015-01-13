@@ -63,11 +63,11 @@
             if(!Yii::app()->user->isGuest){
                 $me = UserInfo::model()->with('unisCheckedMessageCount','unisCheckedNoticeCount')->findByPk(Yii::app()->user->id);
                 if(!empty($me) && $me->unisCheckedNoticeCount>0 && !(Yii::app()->controller->id=="notice") ){
-                    $noticeLabel.=  '&nbsp;<span class="badge badge-warning">'.$me->unisCheckedNoticeCount.'</span>';
+                    $noticeLabel.=  '&nbsp;<span class="badge alert-danger">'.$me->unisCheckedNoticeCount.'</span>';
                 }
                 $noticeLabel = '<span class="dxd-notice">'.$noticeLabel.'</span>';
                 if(!empty($me) && $me->unisCheckedMessageCount>0 && !(Yii::app()->controller->id=="message"))
-                    $messageLabel.=  '&nbsp;<span class="badge badge-warning">'.$me->unisCheckedMessageCount.'</span>';
+                    $messageLabel.=  '&nbsp;<span class="badge alert-danger">'.$me->unisCheckedMessageCount.'</span>';
             }else{
             }
             $items=Nav::getTopItems();

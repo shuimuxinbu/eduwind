@@ -17,7 +17,7 @@
             margin-bottom: 10px;
             color: @color-main;
             font-size: 22px;
-            line-height: 28px;
+            line-height: 32px;
             border-bottom: 2px solid @color-main;
         }
     }
@@ -92,18 +92,19 @@
                 }
             }
             display: table;
-            height: 220px;
+            height: 200px;
             margin-bottom: 10px;
             width: 100%;
             .pic {
                 display: table-cell;
-                max-width: 297px;
-                width: 297px;
+                max-width: 270px;
+                width: 270px;
                 img {
-                    height: 220px;
+                    height: 200px;
                 }
             }
             .text {
+                height: 200px;
                 @media (max-width: 767px) {
                     .course-manage {
                         .elective-course-btn {
@@ -194,7 +195,7 @@
                     }
                 }
                 .info-course {
-                    height: 120px;
+                    height: 100px;
                     padding-left: 30px;
                     div {
                         @media (max-width: 767px) {
@@ -206,12 +207,12 @@
                         float: left;
                         display: inline-block;
                         border-left: 1px solid #fff;
-                        padding: 50px 0;
+                        padding: 40px 0;
                         color: #fff;
                         font-size: 16px;
                         line-height: 20px;
                         width: 27%;
-                        height: 120px;
+                        height: 100px;
                         text-align: center;
                         &:first-child {
                             position: relative;
@@ -457,12 +458,12 @@
                     border-bottom: 1px solid #fff;
                 }
                 .items {
+                    .separator {
+                        margin: 12px 0;
+                        border-top: 1px solid #ddd;
+                    }
                     .item-replayWiner {
                         position: relative;
-                        .separator {
-                            margin: 10px 0;
-                            border: 1px solid #ddd;
-                        }
                         .pic {
                             img {
                                 width: 80px;
